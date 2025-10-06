@@ -5,7 +5,8 @@
 
 **Red Hunter-AI** is an advanced open-source AI cyber operations assistant, purpose-built for cybersecurity professionals, red teamers, and advanced bug hunters. Inspired by elite intelligence agents and APT groups, Red Hunter-AI specializes in offensive security, stealth operations, and real-world adversarial tactics.
 
-![Red Hunter-AI cover](./public/cover_zola.jpg)
+![Red Hunter-AI cover] ![generated-image(1)](https://github.com/user-attachments/assets/894058cf-dcd6-4843-ad8c-a377005ea91c)
+
 
 ## About Red Hunter-AI
 
