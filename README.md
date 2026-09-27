@@ -33,8 +33,8 @@
 - [Comprehensive User Guidance & Multi-Domain Testing Manual (USER_GUIDANCE.md)](USER_GUIDANCE.md)
 - [Tri-Mode Offensive Testing Engine](#tri-mode-offensive-testing-engine)
   - [The Power of Black Box: The True Autonomy Test](#the-power-of-black-box-the-true-autonomy-test)
-  - [Multi-Surface Execution Matrix (Web, Network, Cloud, Mobile, Embedded/IoT, OSINT/GEOINT)](#multi-surface-execution-matrix)
-- [12 Core Architectural Pillars & Capabilities](#12-core-architectural-pillars--capabilities)
+  - [Multi-Surface Execution Matrix (Web, Network, Cloud, Mobile, Embedded/IoT, SATCOM/Space, OSINT/GEOINT)](#multi-surface-execution-matrix)
+- [15 Core Architectural Pillars & Capabilities](#15-core-architectural-pillars--capabilities)
   - [1. Physical USB Mobile Hardware Bridge (Android & iOS)](#1-physical-usb-mobile-hardware-bridge-android--ios)
   - [2. Physical Hardware & Network Appliance Bridge (Routers, Switches, Firewalls, IoT)](#2-physical-hardware--network-appliance-bridge-routers-switches-firewalls-iot)
   - [3. Autonomous Dual-Browser Operator (Manus-Style Local + Cloud CDP)](#3-autonomous-dual-browser-operator-manus-style-local--cloud-cdp)
@@ -51,6 +51,12 @@
     - [Ground-Truth Reference Baseline Differential Analysis (Side-by-Side Calibration)](#ground-truth-reference-baseline-differential-analysis-side-by-side-calibration)
     - [CCTV & Convex Mirror Optical Inversion and Forensic Contrast Deck](#cctv--convex-mirror-optical-inversion-and-forensic-contrast-deck)
     - [Court-Admissible FRE 902(14) Reporting](#court-admissible-fre-90214-reporting)
+  - [13. Satellite Communications (SATCOM), Space Cyber Security & Physical RF Radio Engine (Aerospace SPARTA Framework)](#13-satellite-communications-satcom-space-cyber-security--physical-rf-radio-engine-aerospace-sparta-framework)
+  - [14. OSIRIS Live OSINT Matrix & Embedded Tactical Situational Awareness Platform](#14-osiris-live-osint-matrix--embedded-tactical-situational-awareness-platform)
+  - [15. Threat Actor Attribution, Adversarial Honeytokens & Forensic Intelligence Engine](#15-threat-actor-attribution-adversarial-honeytokens--forensic-intelligence-engine)
+  - [16. White-Box Code Property Graph (CPG) & Source-to-Sink Taint Engine](#16-white-box-code-property-graph-cpg--source-to-sink-taint-engine)
+  - [17. Autonomous Network Topology Inference & Architecture Cartography ("Eye in the Sky")](#17-autonomous-network-topology-inference--architecture-cartography-eye-in-the-sky)
+  - [18. AI-Driven Binary Diffing, 1-Day Patch Analysis & Semantic Genetic Protocol Fuzzing](#18-ai-driven-binary-diffing-1-day-patch-analysis--semantic-genetic-protocol-fuzzing)
 - [Interactive Live Computer Studio UI](#interactive-live-computer-studio-ui)
 - [Getting Started & Installation](#getting-started--installation)
   - [System Prerequisites](#system-prerequisites)
@@ -118,11 +124,16 @@ When starting in Black Box mode:
 | **☁️ Cloud (AWS, GCP, Azure, K8s)** | Unauthenticated bucket enumeration (S3, GCS, Blobs), exposed container registries, metadata service SSRF (IMDSv1/v2). | Low-privilege IAM credential exploitation, privilege escalation paths (`iam:PassRole`, `sts:AssumeRole`), trust hopping. | Infrastructure-as-Code (Terraform, CloudFormation, K8s YAML) audit, least-privilege IAM matrix review, CIS Benchmarks. |
 | **📱 Mobile (Android & iOS)** | Dynamic APK/IPA tampering, SSL pinning bypass, physical USB touch automation, exported Activity/IPC fuzzing. | Authenticated mobile API flow testing, local SQLite database extraction (`run-as`), biometric logic bypasses. | Smali/Java bytecode decompilation, hardcoded secret harvesting, cryptographic implementation audits. |
 | **📟 Embedded, IoT & Network Appliances** | Dynamic host port & NIC discovery (`discover_hardware`), auto-baud sweeping, bootloader break sequence injection, gateway router fingerprinting. | Unauthenticated default credential auditing (Cisco, Fortinet, pfSense, OpenWrt, Mikrotik), serial interactive console shell takeover. | Hardware SPI flash dumping (`flashrom`), SquashFS/JFFS2 firmware extraction & secret carving (`binwalk`), UART pinout reverse engineering. |
-| **🛰️ OSINT & Geospatial Intelligence (GEOINT)** | 5-Layer Geolocation & Signal Triangulation, Solar Chronolocation (solar angles/shadow math), passive DNS, crt.sh Certificate Transparency mapping, ExifTool metadata carving, developer registry footprinting. | Deepfake & synthetic media forensic auditing (ELA, noise residuals, C2PA provenance), multi-engine reverse image aggregation (Google Lens, Yandex, Bing, TinEye), international license plate decoding. | Complete executive forensic PDF dossier generation, legal/ethical guardrail adherence (anti-doxxing, CWE-359, GDPR Art. 9 compliance), cryptographic SHA-256 evidence anchoring. |
+| **🏭 SCADA, Industrial Control Systems (ICS) & OT** | Passive OT subnet discovery, Modbus TCP slave ID sweeping, Siemens S7comm rack/slot enumeration, BACnet Who-Is broadcast, Web HMI fingerprinting. | Modbus holding register & coil manipulation (FC01-FC06, FC15/16), S7comm DB block extraction, Ethernet/IP CIP tag browsing, DNP3 CROB execution, OPC UA anonymous policy auditing. | Ladder logic & Structured Text safety interlock audit, engineering workstation project (.zap16, .acd) password extraction, RTOS firmware analysis (VxWorks, QNX), Purdue Model segmentation validation. |
+| **🛰️ SATCOM, Space Cyber Security & RF Systems** | Passive RF monitoring & IQ capture via SDRs (USRP B210, HackRF, LimeSDR, RTL-SDR), spectrum power sweeps, Hamlib `rotctl` tracking antenna dish steering, signal demodulation via GNU Radio / `gr-satellites`, cleartext telemetry detection. | Terminal WAN gateway audits (TR-069 port 7547, SNMPv1/v2c, HTTP/SSH), baseband firmware cryptographic validation, telecommand COP-1 anti-replay testing, and GPSDO 10 MHz reference clock lock checks. | Top 15 Aerospace Corporation SPARTA framework automated audits, dynamic AI-synthesized military TTP playbooks tailored to target CPU (`arm64`, `sparc_leon3`) & framing (`CCSDS_355`, `DVB-S2_GSE`), and production-ready remediation patch generation (C, Python, Bash, Config). |
+| **🌐 OSINT & Geospatial Intelligence (GEOINT)** | 5-Layer Geolocation & Signal Triangulation, Solar Chronolocation (solar angles/shadow math), passive DNS, crt.sh Certificate Transparency mapping, ExifTool metadata carving, developer registry footprinting. | Deepfake & synthetic media forensic auditing (ELA, noise residuals, C2PA provenance), multi-engine reverse image aggregation (Google Lens, Yandex, Bing, TinEye), international license plate decoding. | Complete executive forensic PDF dossier generation, legal/ethical guardrail adherence (anti-doxxing, CWE-359, GDPR Art. 9 compliance), cryptographic SHA-256 evidence anchoring. |
+| **🔍 White-Box Code Property Graph (CPG) & Taint Engine** | Repository route & attack surface enumeration, framework route detection, third-party dependency vulnerability indexing. | Source-to-sink taint tracking (SQLi, RCE, SSRF, Deserialization), unmitigated dataflow analysis, dependency reachability verification (zero-false-positive SCA). | Deep AST code graph traversal, upstream caller blast radius modeling, automatic patch validation, and verified exploit path generation into the Unified Cyber Graph. |
+| **👁️ Autonomous Network Topology Inference ("Eye in the Sky")** | Mathematical TTL delta hop distance calculation, multi-port TTL divergence, TCP window size fingerprinting, DNS SRV record discovery (AD Domain Controllers & KDCs), DNSSEC NSEC zone walking. | Middlebox reverse proxy/load balancer detection (F5 BIG-IP, AWS ALB, Envoy, Cloudflare), Purdue zone classification (DMZ, Internal LAN, Database Enclave, Active Directory), Web/API proxy header & timing analysis. | Full cross-domain trust graph reconstruction (Web ➔ DB, Member Server ➔ Domain Controller, Cloud IAM AssumeRole bridges, dual-homed hardware routers), architectural weak point detection (DMZ-to-AD direct bridges, unsegmented databases). |
+| **🔬 AI-Driven Patch Diffing & Semantic Protocol Fuzzing** | Automated vendor patch download, unified diff parsing, 1-day vulnerability gap isolation, evolutionary grammar-aware fuzzing (HTTP/2, gRPC Protobuf, GraphQL, WebSockets, binary RPC). | AST delta categorization (bounds checks, auth enforcement, type validation), patch completeness scoring, bypass vector discovery (nested traversals, timing discrepancies, encoding slips). | Sibling unpatched function identification, multi-objective genetic breeding (latency spikes + fatal 5xx crashes), automated crash triage, and defensive regression test synthesis into the Unified Cyber Graph. |
 
 ---
 
-## 12 Core Architectural Pillars & Capabilities
+## 18 Core Architectural Pillars & Capabilities
 
 ```mermaid
 graph TD
@@ -361,6 +372,115 @@ graph TD
     - Compiles high-resolution executive PDF dossiers and visual Markdown scorecards.
     - Full chain of custody with SHA-256, SHA-512, and MD5 cryptographic hashes compliant with **Federal Rules of Evidence (FRE) Rule 902(14)** and **SWGDE** digital evidence standards.
   * **Strict Ethical & Legal Safety Guardrails**: Built-in guardrails strictly forbid unauthorized facial recognition surveillance, doxxing, or private human tracking (CWE-359, GDPR Art. 9).
+
+### 13. Satellite Communications (SATCOM), Space Cyber Security & Physical RF Radio Engine (Aerospace SPARTA Framework)
+* **What it does**: Provides military-grade cybersecurity assessment, passive RF reconnaissance, and automated vulnerability hotpatching for satellite terminals, spacecraft bus architectures, and ground stations, strictly adhering to **The Aerospace Corporation SPARTA (Space Attack Research & Tactic Analysis)** framework.
+* **How it works**:
+  * **Direct Physical Hardware Abstraction (Zero Mocks / Zero Simulations)**:
+    - **SDR Controller (`lib/security/hardware/satcom-physical-radio-controller.ts`)**: Direct host driver execution for **Ettus USRP B210/X310** (`uhd_find_devices`, `uhd_usrp_probe`, `uhd_rx_cfile`), **HackRF One** (`hackrf_info`, `hackrf_transfer`), **LimeSDR** (`LimeUtil`), and **RTL-SDR v3/v4** (`rtl_test`, `rtl_sdr`).
+    - **Antenna Tracking Rotator Interface**: Communicates directly with antenna positioners via the universal military and amateur **Hamlib `rotctl` / `rotctld` protocol** over TCP port 4533 or serial. Commands azimuth/elevation coordinates (`P <az> <el>`) and queries real-time tracking locks (`p`).
+    - **Physical GPSDO Clock Reference**: Validates 10 MHz reference clock and 1 PPS pulse synchronization on USRP hardware or GPSD daemon to defend against civil GPS spoofing.
+  * **Passive Spectrum Monitoring & Raw IQ Sample Capture**:
+    - Sweeps target frequency bands (L-Band 1.626 GHz Iridium/Inmarsat, Ku-Band 14.25 GHz VSAT, UHF 437 MHz CubeSats) without unauthorized RF transmission.
+    - Records raw 32-bit complex float IQ captures (`.raw`) to disk with automated signal-to-noise ratio (SNR) and center frequency telemetry.
+  * **Signal Processing & Telemetry Frame Decoding**:
+    - Synthesizes production-ready **GNU Radio Companion Python flowgraphs** (`root_raised_cosine`, `costas_loop_cc`, `symbol_sync_cc`, `constellation_decoder_cb`) dynamically.
+    - Directly executes **`gr-satellites`** and **`satdump`** CLI tools to demodulate and extract CCSDS 355.0-B-1, AX.25, DVB-S2 GSE, and NOAA weather telemetry frames.
+  * **Dynamic Military-Approved SPARTA TTP Playbook Synthesizer (`lib/security/hardware/satcom-dynamic-ttp-engine.ts`)**:
+    - Eliminates rigid static strings: dynamically analyzes target telemetry (carrier frequency, CPU architecture `arm64`/`sparc_leon3`/`x86_64`, framing standard, and modem OS).
+    - Autonomously synthesizes custom, context-aware military audit scripts (Bash/Python/C) and production-ready remediation patches for all **Top 15 Aerospace Corporation SPARTA Controls** (`SPARTA-REC-0001` through `SPARTA-EXF-0015`).
+    - Grounded in military and space standards: **CCSDS 355.0-B-1 (SDLS)**, **CCSDS 232.1-B-2 (COP-1)**, **MIL-STD-188-164C/165B**, **DoD Zero Trust Space Enclave Reference**, **NSA CSfC Space**, and **Galileo OSNMA**.
+
+### 14. OSIRIS Live OSINT Matrix & Embedded Tactical Situational Awareness Platform
+* **What it does**: Ingests real-time multi-layer open source intelligence (OSINT) inspired by the **OSIRIS platform (`osirisai.live`)**, aggregating georeferenced public CCTV/traffic webcams, live ADS-B air traffic transponders, USGS seismic event streams, undersea fiber optic cable corridors, and astronomical solar day/night terminator lines.
+* **How it works**:
+  * **Real-Time Data Ingestion Engine (`lib/security/osint/live-osint-matrix.ts`)**:
+    - **Live USGS Earthquake Feeds**: Ingests `earthquake.usgs.gov` real-time GeoJSON streams, calculating magnitude, focal depth, tsunami alerts, and distance to target coordinates.
+    - **OpenSky Network ADS-B Stream**: Connects to the OpenSky Network API to track active aircraft, decoding callsigns, ICAO24 addresses, barometric altitude, ground velocity, squawk codes, and heading vectors.
+    - **Georeferenced Public CCTV Directory**: Maintains a curated directory of active public traffic webcams and municipal cameras across key strategic corridors (e.g. Kok-Art Pass, Osh, Bishkek, Tokyo Shibuya, London Thames Barrier, New York Harbor, Jebel Ali) with verified live HLS (`.m3u8`) and snapshot feeds.
+    - **Strategic Submarine Fiber Cables**: Ingests international undersea communications cable paths (SEA-ME-WE 5, Apollo Transatlantic, Faster Trans-Pacific) with landing stations and capacity metrics.
+    - **Astronomical Solar Day/Night Terminator**: Calculates the real-time solar declination, Greenwich Hour Angle, and 360° great-circle shadow arc to display daylight vs. nocturnal operational coverage.
+    - **Cross-Domain SATCOM & RF Overpass Correlator**: Correlates ground station RF intercepts (SDR frequencies in UHF, S-band, or Ku-band) with overhead LEO/GEO satellite footprints and nearby camera feeds.
+  * **Interactive Embedded Tactical OSIRIS Map (`components/osint/tactical-osiris-map.tsx`)**:
+    - **Dark Military HUD**: Displays Zulu time (`06:54:52Z`), solar geomagnetic Kp index (`Kp0`), entity counter (`41,249 ENTITIES`), and status indicators.
+    - **Dynamic Layer Toggles**: Sidebar controls to toggle CCTV cameras, ADS-B aircraft trails, USGS seismic rings, submarine cables, day/night shadows, and satellite passes.
+    - **Pop-Up Secure Video Uplink HUD**: Clicking any camera pin opens a tactical picture-in-picture stream modal featuring live HLS playback, coordinate telemetry, azimuth/elevation angles, scanline CRT overlays, and target lock controls.
+    - **Real-Time Seismic Incident Ticker**: Scrolling footer ticker broadcasting live earthquake alerts with magnitude severity badges and relative timestamps.
+    - **Seamless Chat Embeds**: When requested, the AI assistant outputs an ````osiris ... ```` block, rendering the interactive tactical HUD directly inside the conversation.
+
+### 15. Threat Actor Attribution, Adversarial Honeytokens & Forensic Intelligence Engine
+* **What it does**: Bridges low-level artifact forensics with macro threat intelligence to identify nation-state threat groups (APTs) and ransomware syndicates across **10 orthogonal behavioral dimensions**, enforcing mathematical Bayesian likelihood distributions, Rule of 3+ multi-source verification, and Federal Rules of Evidence Rule 902(14) self-authenticating digital evidence generation.
+* **How it works**:
+  * **10-Vector Behavioral Feature Extraction Pipeline (`lib/security/forensics/`)**:
+    - **Temporal Fingerprinting (`temporal-fingerprint.ts`)**: Models inter-command delta timing ($\Delta t$), kernel density estimations (KDE), diurnal active working-hour distributions (UTC 0-23), and cognitive pause breaks ($>300\text{s}$) to detect human fatigue vs. automated loops and calculate origin timezones.
+    - **Language & Cultural Forensics (`language-forensics.ts`)**: Categorizes Unicode script blocks (`\p{Script=Cyrillic}`, `\p{Script=Han}`, `\p{Script=Arabic}`), extracts localized slang/transliterated operational tokens (Russian `parol`, `dostup`; Chinese Pinyin `mima`, `caidao`), and catches JCUKEN keyboard layout slipping (e.g. typing `ды` for `ls` or `сы` for `cd`).
+    - **Tool Chain & MITRE ATT&CK Fingerprints (`toolchain-analyzer.ts`)**: Maps raw shell pipelines to official MITRE techniques and calculates vector cosine similarity against active threat groups (**APT28 / Fancy Bear**, **APT29 / Cozy Bear**, **Volt Typhoon**, **Lazarus Group**, and **LockBit Syndicate**).
+    - **Infrastructure Reuse Graph (`crtsh-client.ts`, `rdap-client.ts`)**: Connects to the free public Certificate Transparency log search (`crt.sh`) to extract SSL serial numbers and Subject Alternative Names (SANs), coupled with RIR RDAP and RIPE Stat BGP prefix routing.
+    - **Live Tor Project Bulk Exit Relay Filter (`tor-checker.ts`)**: Queries and caches the official Tor Project directory to neutralize spoofed geographic attributions.
+    - **Cryptocurrency On-Chain Tracing (`mempool-client.ts`)**: Leverages 100% free Mempool.space and Blockstream APIs to parse Bitcoin UTXO flows, detect peeling chain behavior, and tag known KYC exchange cash-out deposit clusters (Binance, Coinbase, Kraken, Bitfinex).
+    - **AI Adversarial Detection Engine (`ai-adversarial-detector.ts`)**: Evaluates sub-15ms execution burst rates, typo error absence, Shannon command entropy, and checks for adversarial prompt canary tripwires.
+    - **Adversarial Honeytoken Manager (`honeytoken-manager.ts`)**: Dynamically provisions authentic decoy AWS STS access keys (`AKIA` format) and canary webhooks to capture an attacker's non-proxied IP, User-Agent, and headers.
+  * **Mathematical Attribution Engine (`bayesian-attribution-engine.ts`)**:
+    - **Bayesian Posterior Likelihoods**: Calculates $P(\text{Actor}_k \mid E) \propto P(E \mid \text{Actor}_k) \cdot P(\text{Actor}_k)$ across all candidate threat actors.
+    - **Rule of 3+ Multi-Source Verification**: Demands affirmative correlation across $\ge 3$ independent axes (Infrastructure, Toolchain, Cultural, Temporal, Crypto) before certifying attribution.
+    - **False-Flag & Deception Penalty**: Detects commercial VPNs, Tor exit nodes, and contradictory cultural artifacts to prevent false attribution.
+    - **Court-Admissible FRE 902(14) Evidence**: Generates canonical JSON payloads anchored with SHA-256 hashes for courtroom submission.
+  * **Autonomous DFIR Tool Integration (`lib/ai/tools/dfir-tools.ts`)**:
+    - `dfir_threat_attribution`: Enables the RedHunter AI swarm to autonomously execute threat actor profiling during campaigns.
+    - `dfir_honeytoken_deploy`: Deploys decoy canary credentials on demand.
+
+### 16. White-Box Code Property Graph (CPG), Source-to-Sink Taint Engine & Reachability Analysis
+* **What it does**: Turns any codebase, cloned git repository, or decompiled application into a queryable Code Property Graph (CPG) with deterministic source-to-sink taint tracking, blast radius impact analysis, and zero-false-positive dependency reachability (SCA) verification.
+* **How it works**:
+  * **Code Property Graph Engine (`lib/security/codegraph/code-graph-engine.ts`)**:
+    - **AST & Semantic Symbol Parsing**: Ingests source files (TypeScript, JavaScript, Python, Go, Rust, C/C++) to extract HTTP routes, function declarations, input sources (`req.body`, `req.query`, `req.params`), execution sinks, and sanitizers.
+    - **Source-to-Sink Dijkstra/BFS Taint Tracking**: Traces untrusted input dataflow paths down to dangerous execution sinks: OS Command Injection (CWE-78), SQL Injection (CWE-89), Dynamic Code Eval (CWE-94), SSRF (CWE-918), Path Traversal (CWE-22), and Insecure Deserialization (CWE-502).
+    - **Sanitizer Neutralization Registry (`sanitizer-registry.ts`)**: Validates whether parameterized queries, numeric casting (`parseInt`), path basenames, or DOMPurify nodes sit along the dataflow path. Unmitigated paths are flagged as verified vulnerabilities with reproduction traces.
+    - **Impact Radius & Blast Radius Calculation**: Traverses upstream call graphs using reverse BFS to calculate all callers, dependent modules, and exposed public HTTP endpoints affected by a vulnerable helper function.
+    - **Supply Chain Reachability Verification (Zero-False-Positive SCA)**: Cross-references third-party library CVEs against the application's active call graph to eliminate false positives from uncalled library code.
+  * **Autonomous AI Tool Suite (`lib/ai/tools/code-graph-tool.ts`)**:
+    - `codegraph_index`: Ingests files or entire directories into the active Code Property Graph.
+    - `codegraph_query_path`: Verifies source-to-sink dataflow reachability and sanitizer neutralization.
+    - `codegraph_impact_radius`: Calculates upstream callers and exposed public endpoints.
+    - `codegraph_audit_sinks`: Discovers unmitigated sinks and registers verified exploit paths directly into RedHunter's Unified Cyber Graph (`globalCyberGraph`).
+    - `codegraph_check_reachability`: Audits third-party dependency reachability.
+
+### 17. Autonomous Network Topology Inference & Architecture Cartography ("Eye in the Sky")
+* **What it does**: Moves far beyond flat port scans to mathematically reconstruct full enterprise and cloud network topologies, middleboxes (stateful firewalls, load balancers, reverse proxies), Active Directory forests, and cross-domain server trust relationships without requiring internal agent access.
+* **How it works**:
+  * **Multi-Layer Topology Engine (`lib/security/topology/network-topology-engine.ts`)**:
+    - **Mathematical TTL Delta & Hop Distance Solver**: Evaluates incoming packet TTL values against standard base operating systems ($64$ for Linux/BSD/Mac, $128$ for Windows, $255$ for Cisco/Juniper) to calculate exact hop distance ($H = TTL_{\text{base}} - TTL_{\text{received}}$).
+    - **Multi-Port TTL Divergence**: Compares TTL bases across different ports on the same host to mathematically prove the presence of reverse proxies (Envoy, NGINX, HAProxy), SSL terminators, or Layer 7 load balancers (F5 BIG-IP, AWS ALB/NLB).
+    - **TCP Window & Stack Characteristics**: Fingerprints stateful deep packet inspection firewalls (Palo Alto, Fortinet) and SYN proxies rewriting window options (e.g. static 65535 or 512).
+    - **Purdue & Enterprise Zone Classification**: Categorizes assets into architectural tiers: Internet Edge, DMZ, Application Tier, Database Enclave, Active Directory Enclave, and Management Out-of-Band (OOB).
+    - **Active Directory & Infrastructure Mapping via DNS**: Queries canonical DNS SRV records (`_ldap._tcp.dc._msdcs`, `_kerberos._tcp.dc._msdcs`, `_gc._msdcs`) and executes DNSSEC NSEC/NSEC3 zone walking to unearth Domain Controllers and internal services without noisy brute-force traffic.
+    - **Universal Cross-Domain Trust Mapping**: Ingests Web/API reverse proxy links, Cloud IAM `sts:AssumeRole` trust chains, and physical hardware multi-homed bridges.
+    - **Architectural Weak Point & Pivot Discovery**: Automatically detects high-risk architectural anomalies (e.g. DMZ servers with direct, uninspected port 389/88 access to Active Directory Domain Controllers, or cross-account administrator IAM takeovers).
+  * **Autonomous AI Tool Suite (`lib/ai/tools/network-topology-tool.ts`)**:
+    - `topology_infer_architecture`: Ingests packet telemetry, TTL hops, and middleboxes.
+    - `topology_dns_zone_walk`: Discovers Active Directory Domain Controllers and KDCs via DNS SRV.
+    - `topology_ingest_cross_domain`: Ingests Web/API microservices, Cloud IAM chains, and hardware bridges.
+    - `topology_export_trust_report`: Generates Mermaid architecture diagrams and synchronizes verified assets and trust edges directly into RedHunter's Unified Cyber Graph (`globalCyberGraph`).
+
+### 18. AI-Driven Binary Diffing, 1-Day Patch Analysis & Semantic Genetic Protocol Fuzzing
+* **What it does**: Closes the critical "1-Day window" between vendor patch release and enterprise patch adoption. Rather than waiting for public exploit drops or CVE database updates, RedHunter AI instantly reverse-engineers software patches, isolates vulnerability mechanisms, identifies incomplete or bypassable fixes, and drives grammar-aware genetic fuzzing to uncover deep memory and logic flaws.
+* **How it works**:
+  * **AST & Binary Patch Diffing Engine (`lib/security/patch/patch-diff-engine.ts`)**:
+    - **Unified Diff & AST Decomposition**: Ingests vendor git diffs (`+/-` lines) or unpatched vs. patched source files, identifying exact code hunks, added constraints, and modified execution branches.
+    - **Fix Classification & Mapping**: Automatically categorizes security fixes (`bounds_check`, `input_sanitization`, `auth_enforcement`, `type_validation`, `memory_management`, `parameterized_query`) and maps them to concrete CWE identifiers (CWE-119, CWE-78, CWE-89, CWE-22, CWE-285, CWE-416).
+    - **Patch Completeness & Bypass Scoring**: Detects fragile or incomplete vendor fixes (such as single-pass `.replace("../", "")` traversals, non-constant-time token comparisons, or missing recursion checks) and automatically generates functional bypass vectors (e.g. `....//`, double URL encoding, timing side channels).
+    - **Sibling Function Vulnerability Analysis**: Scans surrounding repository files for sibling endpoints or helper functions that perform identical unvalidated operations but were missed by the vendor patch.
+    - **Defensive Regression Test Synthesis**: Produces automated test harnesses that verify whether a patched target properly blocks boundary mutations, and exposes 1-day gaps in unpatched instances.
+  * **Semantic Genetic Protocol Fuzzing Engine (`lib/security/fuzzing/genetic-fuzzer-engine.ts`)**:
+    - **Grammar-Aware Schema Chromosomes**: Models structured payloads across complex protocols (`http2_rest`, `grpc_protobuf`, `graphql`, `websocket_json`, `length_prefixed_binary`, `tlv_custom_rpc`) as evolutionary chromosomes rather than random byte destruction.
+    - **Intelligent Domain Mutators**: Applies 7 targeted mutation operators: boundary integer injection (32-bit/64-bit boundaries), type confusion swaps (scalar to nested object/array/null), deep recursive nesting (stack exhaustion probes), format specifier fuzzing (`%s%p%x%n`), unicode homoglyph slip, and array overflow expansion.
+    - **Multi-Objective Genetic Fitness Function**: Quantifies payload efficacy based on response latency deltas (algorithmic DoS), HTTP 5xx fatal crashes, memory pressure, and parser divergence ($F = W_{\text{latency}} \cdot \Delta t + W_{\text{error}} \cdot S_{5xx} + W_{\text{complexity}} \cdot C$).
+    - **Elite Survivor Selection & Crossover Breeding**: Carries forward the top 30% elite edge-case payloads across successive generations while breeding novel offspring via gene crossover recombination.
+    - **Automated Crash Triage & Disassembly**: Disassembles unhandled exceptions, SIGSEGV crashes, and timeouts into reproducible curl commands, proof-of-concept payloads, and root-cause remediations.
+  * **Autonomous AI Tool Suite (`lib/ai/tools/fuzzing-patch-tools.ts`)**:
+    - `patch_diff_analyze`: Ingests git diffs or source code versions, classifies vulnerability mechanisms, detects bypass vectors, and registers 1-day gaps into the Cyber Graph (`globalCyberGraph`).
+    - `semantic_genetic_fuzz`: Deploys evolutionary protocol fuzzing campaigns with latency/crash-guided genetic feedback.
+    - `fuzz_triage_crash`: Disassembles crash traces, unhandled exceptions, and latency anomalies into actionable reproduction harnesses.
 
 ---
 
