@@ -167,8 +167,23 @@ RedHunter AI eliminates the two greatest failure modes of autonomous AI security
 ## 19 Core Architectural Pillars & Capabilities
 
 <div align="center">
-  <p><b>Unified Command & Control Architecture — From Silicon & RF Space Spectrum to Autonomous Cloud Swarms</b></p>
+  <p><b>Neo4j-Style Autonomous Graph Topology & Command Matrix — Live Swarm & Multi-Domain Pipeline</b></p>
 </div>
+
+```cypher
+$ MATCH p = (operator:Operator)-[:DISPATCHES_MISSION]->(orchestrator:SuperAgent)-[rel:ORCHESTRATES|EXECUTES|AUDITS]->(pillar:Pillar)
+RETURN operator, orchestrator, rel, pillar LIMIT 50
+```
+
+> **Neo4j Active Topology View**:
+> <kbd style="background:#ff4d6d;color:#fff;border-radius:12px;padding:3px 8px;font-size:11px;font-weight:bold;">● CoreOrchestrator (2)</kbd> &nbsp;
+> <kbd style="background:#fb923c;color:#fff;border-radius:12px;padding:3px 8px;font-size:11px;font-weight:bold;">● SwarmAgents (5)</kbd> &nbsp;
+> <kbd style="background:#c084fc;color:#fff;border-radius:12px;padding:3px 8px;font-size:11px;font-weight:bold;">● CodeGraph_Memory (5)</kbd> &nbsp;
+> <kbd style="background:#38bdf8;color:#fff;border-radius:12px;padding:3px 8px;font-size:11px;font-weight:bold;">● Physical_RF_EW (3)</kbd> &nbsp;
+> <kbd style="background:#2dd4bf;color:#fff;border-radius:12px;padding:3px 8px;font-size:11px;font-weight:bold;">● ThreatIntel_OSINT (4)</kbd> &nbsp;
+> <kbd style="background:#f472b6;color:#fff;border-radius:12px;padding:3px 8px;font-size:11px;font-weight:bold;">● ExecutionSandboxes (4)</kbd> &nbsp;
+> <kbd style="background:#94a3b8;color:#fff;border-radius:12px;padding:3px 8px;font-size:11px;font-weight:bold;">● ControlSync (1)</kbd> &nbsp;
+> <kbd style="background:#475569;color:#e2e8f0;border-radius:12px;padding:3px 8px;font-size:11px;font-weight:bold;">RELATIONSHIPS (25)</kbd>
 
 ```mermaid
 %%{init: {
@@ -176,91 +191,101 @@ RedHunter AI eliminates the two greatest failure modes of autonomous AI security
   'themeVariables': {
     'primaryColor': '#1e0509',
     'primaryTextColor': '#ffffff',
-    'primaryBorderColor': '#e11d48',
-    'lineColor': '#f43f5e',
-    'secondaryColor': '#2d0910',
+    'primaryBorderColor': '#ff2a55',
+    'lineColor': '#888888',
+    'secondaryColor': '#1c1917',
     'tertiaryColor': '#140306',
-    'clusterBkg': '#0d0204',
-    'clusterBorder': '#be123c',
-    'fontFamily': 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto'
+    'edgeLabelBackground':'#18181b',
+    'fontFamily': 'ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, monospace',
+    'fontSize': '11px'
   }
 }}%%
-flowchart TB
-    Operator(["🛡️ SECURITY OPERATOR / RED TEAM LEAD"]):::operatorNode
-    Operator --> Orchestrator["⚡ SUPER-AGENT STRATEGIC ORCHESTRATOR<br/><i>FastA2A Consensus • Dynamic DAG Decomposition • Tabu Ledger</i>"]:::orchestratorNode
+flowchart LR
+    %% Neo4j Style Hub & Circular Nodes
+    Operator(("👤<br/><b>Operator</b><br/>Lead")):::cRed
+    Orchestrator(("⚡<br/><b>SuperAgent</b><br/>Orchestrator")):::cRed
 
-    subgraph SwarmCore ["🔥 LAYER 1: AUTONOMOUS SWARM & ADAPTIVE EXECUTION"]
-        direction TB
-        P04["<b>[04] FastA2A Multi-Agent Swarm Protocol</b><br/>Recon • WebApp • Network • Post-Ex • Hypothesis Agents"]:::swarmNode
-        P06["<b>[06] Dynamic 3-Gear Action Engine</b><br/>Fast (LotL) / Standard / Deep • Zero-Loop Stagnation Guard"]:::swarmNode
-        P10["<b>[10] Real-Time Task Progress Tracker</b><br/>Live State Synchronization • Deterministic Step Verification"]:::swarmNode
-        P04 <--> P06
-        P06 <--> P10
+    subgraph SwarmAgents ["🟠 SwarmAgents (5)"]
+        Recon(("🛰️<br/><b>Recon</b><br/>Specialist")):::cOrange
+        WebApp(("🌐<br/><b>WebApp</b><br/>Exploiter")):::cOrange
+        Network(("🔌<br/><b>Network</b><br/>Exploiter")):::cOrange
+        PostEx(("💀<br/><b>PostEx</b><br/>Operator")):::cOrange
+        Hypothesis(("💡<br/><b>Hypothesis</b><br/>Engine")):::cOrange
     end
 
-    subgraph IntelCodeLayer ["🧠 LAYER 2: DEEP CODE ANALYSIS, TOPOLOGY & INTELLIGENCE"]
-        direction TB
-        P07["<b>[07] Unified Cyber Graph & Tri-Tier Memory</b><br/>Episodic + Vector + Skills Memory • Bidirectional Notes"]:::intelNode
-        P16["<b>[16] White-Box Code Property Graph (CPG)</b><br/>AST/CFG/DDG Synthesis • Source-to-Sink Taint Engine"]:::intelNode
-        P17["<b>[17] Autonomous Network Topology Cartography</b><br/>'Eye in the Sky' Multi-Hop Asset Graph & Route Cartography"]:::intelNode
-        P18["<b>[18] AI 1-Day Patch Diffing & Protocol Fuzzing</b><br/>Assembly Gap Analysis • Stateful Mutation Fuzzing"]:::intelNode
-        P11["<b>[11] Deep Root Cause Analysis (RCA) Hotpatching</b><br/>Vulnerability Origin Tracing • Automated Remediation PRs"]:::intelNode
-        P07 <--> P16
-        P16 <--> P17
-        P17 <--> P18
-        P18 <--> P11
+    subgraph CodeGraph ["🟣 CodeGraph_Memory (5)"]
+        CyberGraph(("🕸️<br/><b>CyberGraph</b><br/>Tri-Tier")):::cPurple
+        CPGTaint(("🧬<br/><b>CPG Taint</b><br/>Source-Sink")):::cPurple
+        Topology(("🗺️<br/><b>Topology</b><br/>Cartography")):::cPurple
+        PatchDiff(("🔬<br/><b>PatchDiff</b><br/>1-Day Fuzz")):::cPurple
+        RCAEngine(("🛠️<br/><b>RCA Engine</b><br/>Hotpatch")):::cPurple
     end
 
-    subgraph ThreatIntelLayer ["👁️ LAYER 3: THREAT ATTRIBUTION, OSINT & MULTIMODAL RECON"]
-        direction TB
-        P12["<b>[12] OSINT, GEOINT & Deepfake Forensics</b><br/>12-Layer Multimodal Audio/Video Tampering & Spectral Audit"]:::threatNode
-        P14["<b>[14] OSIRIS Situational Awareness Matrix</b><br/>Live Geopolitical Cyber Threat Map • Kinetic/EW Feeds"]:::threatNode
-        P15["<b>[15] Threat Actor Attribution & Honeytokens</b><br/>Diamond Model / MITRE Profiling • Canary Honeytoken Traps"]:::threatNode
-        P19["<b>[19] IMINT Visual Reconnaissance Engine</b><br/>Satellite & Drone Imagery • Visual Facility Audit & OCR"]:::threatNode
-        P12 <--> P14
-        P14 <--> P15
-        P15 <--> P19
+    subgraph PhysicalEW ["🔵 Physical_RF_EW (3)"]
+        MobileUSB(("📱<br/><b>USB Mobile</b><br/>ADB/JXA")):::cBlue
+        HardwareAppliance(("🔌<br/><b>Appliance</b><br/>UART/SPI")):::cBlue
+        SatcomEW(("📡<br/><b>SATCOM</b><br/>RF-EW")):::cBlue
     end
 
-    subgraph PhysicalCyberEW ["📡 LAYER 4: MULTI-DOMAIN HARDWARE BRIDGES & CYBER-EW"]
-        direction TB
-        P01["<b>[01] Physical USB Mobile Hardware Bridge</b><br/>Android ADB & Apple iOS/macOS Dynamic JXA / Touch Injection"]:::physicalNode
-        P02["<b>[02] Physical Hardware & Network Appliance Bridge</b><br/>Serial UART COM • Physical Ethernet NIC • SPI Silicon Flash"]:::physicalNode
-        P13["<b>[13] SATCOM, Military Cyber EW & RF Spectrum</b><br/>Aerospace SPARTA • SDR HackRF/USRP/LimeSDR • Hamlib Rotator"]:::physicalNode
-        P01 <--> P02
-        P02 <--> P13
+    subgraph ThreatIntel ["🟢 ThreatIntel_OSINT (4)"]
+        OSIRIS(("🌐<br/><b>OSIRIS</b><br/>Live Map")):::cGreen
+        Deepfake(("🔍<br/><b>Deepfake</b><br/>12-Layer")):::cGreen
+        Attribution(("🎯<br/><b>Attribution</b><br/>Diamond")):::cGreen
+        IMINT(("🛰️<br/><b>IMINT</b><br/>Visual OCR")):::cGreen
     end
 
-    subgraph ExecutionDeliverables ["💻 LAYER 5: HYBRID RUNTIMES, COMPUTER USE & DELIVERABLES"]
-        direction TB
-        P03["<b>[03] Dual-Browser Operator Engine</b><br/>Manus Local CDP Session + Cloudbase Isolated Canvas Stream"]:::execNode
-        P05["<b>[05] Desktop GUI Automation ('Computer Use')</b><br/>Multi-Engine Desktop Navigation • OS Native Event Injection"]:::execNode
-        P08["<b>[08] Sandboxed Kali Linux Runtime & DFIR</b><br/>Virtual Desktop DISPLAY=:1 • Volatility & Network Forensics"]:::execNode
-        P09["<b>[09] Model Context Protocol (MCP) & Connectors</b><br/>Dynamic JSON-RPC Tools • Enterprise SaaS Connectors"]:::execNode
-        P03 <--> P05
-        P05 <--> P08
-        P08 <--> P09
+    subgraph Execution ["🌸 ExecutionSandboxes (4)"]
+        DualCDP(("🖥️<br/><b>Dual CDP</b><br/>Browser")):::cPink
+        DesktopGUI(("🖱️<br/><b>Desktop GUI</b><br/>ComputerUse")):::cPink
+        KaliDFIR(("🐉<br/><b>Kali DFIR</b><br/>Sandbox")):::cPink
+        MCPTools(("⚡<br/><b>MCP Client</b><br/>Connectors")):::cPink
     end
 
-    Orchestrator ==> SwarmCore
-    SwarmCore <==> IntelCodeLayer
-    IntelCodeLayer <==> ThreatIntelLayer
-    ThreatIntelLayer <==> PhysicalCyberEW
-    PhysicalCyberEW <==> ExecutionDeliverables
+    LiveSync(("📊<br/><b>Live State</b><br/>Tracker")):::cSlate
 
-    classDef operatorNode fill:#3f0713,stroke:#ff2a55,stroke-width:2px,color:#ffffff,font-weight:bold;
-    classDef orchestratorNode fill:#24050b,stroke:#f43f5e,stroke-width:3px,color:#ffffff,font-weight:bold;
-    classDef swarmNode fill:#1c0409,stroke:#e11d48,stroke-width:1.5px,color:#ffe4e6;
-    classDef intelNode fill:#190408,stroke:#fb7185,stroke-width:1.5px,color:#ffe4e6;
-    classDef threatNode fill:#20050c,stroke:#f43f5e,stroke-width:1.5px,color:#ffe4e6;
-    classDef physicalNode fill:#2d0711,stroke:#ff1e42,stroke-width:2px,color:#ffffff,font-weight:bold;
-    classDef execNode fill:#160307,stroke:#be123c,stroke-width:1.5px,color:#fecdd3;
+    %% Neo4j Typed Relationship Edges
+    Operator -->|DISPATCHES_GOAL| Orchestrator
+    Orchestrator -->|FASTA2A_SYNC| Recon
+    Orchestrator -->|DEPLOYS_WORKLOAD| WebApp
+    Orchestrator -->|MAPS_ATTACK_SURFACE| Network
+    Orchestrator -->|PRIV_ESCALATION| PostEx
+    Orchestrator -->|EVALUATES_LEADS| Hypothesis
+    Orchestrator -->|DYNAMIC_JSON_RPC| MCPTools
+    Orchestrator -->|REALTIME_SYNC| LiveSync
 
-    style SwarmCore fill:#0d0204,stroke:#e11d48,stroke-width:2px,stroke-dasharray: 4 2,color:#ff4d6d
-    style IntelCodeLayer fill:#0d0204,stroke:#fb7185,stroke-width:2px,stroke-dasharray: 4 2,color:#fda4af
-    style ThreatIntelLayer fill:#0d0204,stroke:#f43f5e,stroke-width:2px,stroke-dasharray: 4 2,color:#fda4af
-    style PhysicalCyberEW fill:#140206,stroke:#ff1e42,stroke-width:2px,stroke-dasharray: 4 2,color:#ff4d6d
-    style ExecutionDeliverables fill:#0d0204,stroke:#be123c,stroke-width:2px,stroke-dasharray: 4 2,color:#fecdd3
+    Hypothesis -->|EPISODIC_QUERY| CyberGraph
+    CyberGraph -->|SYNTHESIS_CONTEXT| Orchestrator
+    WebApp -->|SOURCE_TO_SINK| CPGTaint
+    Network -->|INFER_MULTIHOP| Topology
+    Recon -->|DIFFS_ASSEMBLY| PatchDiff
+    PostEx -->|GENERATES_FIX| RCAEngine
+
+    Network -->|UART_SERIAL_BREAK| HardwareAppliance
+    Recon -->|SPARTA_RF_CAPTURE| SatcomEW
+    PostEx -->|TOUCH_EVENT_INJECT| MobileUSB
+
+    Recon -->|GEOINT_FEED| OSIRIS
+    Recon -->|SPECTRAL_AUDIT| Deepfake
+    Hypothesis -->|APT_PROFILE_MATCH| Attribution
+    Recon -->|SATELLITE_IMG_OCR| IMINT
+
+    WebApp -->|CDP_CANVAS_HOOK| DualCDP
+    PostEx -->|DESKTOP_KEY_INJECT| DesktopGUI
+    Network -->|MEMORY_DUMP_DFIR| KaliDFIR
+
+    classDef cRed fill:#ff4d6d,stroke:#9f1239,stroke-width:2.5px,color:#ffffff,font-weight:bold;
+    classDef cOrange fill:#fb923c,stroke:#c2410c,stroke-width:2.5px,color:#ffffff,font-weight:bold;
+    classDef cPurple fill:#c084fc,stroke:#6d28d9,stroke-width:2.5px,color:#ffffff,font-weight:bold;
+    classDef cBlue fill:#38bdf8,stroke:#0369a1,stroke-width:2.5px,color:#ffffff,font-weight:bold;
+    classDef cGreen fill:#2dd4bf,stroke:#0f766e,stroke-width:2.5px,color:#ffffff,font-weight:bold;
+    classDef cPink fill:#f472b6,stroke:#be185d,stroke-width:2.5px,color:#ffffff,font-weight:bold;
+    classDef cSlate fill:#94a3b8,stroke:#475569,stroke-width:2.5px,color:#ffffff,font-weight:bold;
+
+    style SwarmAgents fill:#18181b40,stroke:#fb923c,stroke-width:1.5px,stroke-dasharray: 4 2,color:#fed7aa
+    style CodeGraph fill:#18181b40,stroke:#c084fc,stroke-width:1.5px,stroke-dasharray: 4 2,color:#e9d5ff
+    style PhysicalEW fill:#18181b40,stroke:#38bdf8,stroke-width:1.5px,stroke-dasharray: 4 2,color:#bae6fd
+    style ThreatIntel fill:#18181b40,stroke:#2dd4bf,stroke-width:1.5px,stroke-dasharray: 4 2,color:#99f6e4
+    style Execution fill:#18181b40,stroke:#f472b6,stroke-width:1.5px,stroke-dasharray: 4 2,color:#fbcfe8
 ```
 
 ---
