@@ -51,12 +51,13 @@
     - [Ground-Truth Reference Baseline Differential Analysis (Side-by-Side Calibration)](#ground-truth-reference-baseline-differential-analysis-side-by-side-calibration)
     - [CCTV & Convex Mirror Optical Inversion and Forensic Contrast Deck](#cctv--convex-mirror-optical-inversion-and-forensic-contrast-deck)
     - [Court-Admissible FRE 902(14) Reporting](#court-admissible-fre-90214-reporting)
-  - [13. Satellite Communications (SATCOM), Space Cyber Security & Physical RF Radio Engine (Aerospace SPARTA Framework)](#13-satellite-communications-satcom-space-cyber-security--physical-rf-radio-engine-aerospace-sparta-framework)
+  - [13. Satellite Communications (SATCOM), Military Cyber Electronic Warfare (EW) & RF Spectrum Operations (Aerospace SPARTA & JEMSO Framework)](#13-satellite-communications-satcom-military-cyber-electronic-warfare-ew--rf-spectrum-operations-aerospace-sparta--jemso-framework)
   - [14. OSIRIS Live OSINT Matrix & Embedded Tactical Situational Awareness Platform](#14-osiris-live-osint-matrix--embedded-tactical-situational-awareness-platform)
   - [15. Threat Actor Attribution, Adversarial Honeytokens & Forensic Intelligence Engine](#15-threat-actor-attribution-adversarial-honeytokens--forensic-intelligence-engine)
   - [16. White-Box Code Property Graph (CPG) & Source-to-Sink Taint Engine](#16-white-box-code-property-graph-cpg--source-to-sink-taint-engine)
   - [17. Autonomous Network Topology Inference & Architecture Cartography ("Eye in the Sky")](#17-autonomous-network-topology-inference--architecture-cartography-eye-in-the-sky)
   - [18. AI-Driven Binary Diffing, 1-Day Patch Analysis & Semantic Genetic Protocol Fuzzing](#18-ai-driven-binary-diffing-1-day-patch-analysis--semantic-genetic-protocol-fuzzing)
+  - [19. Imagery Intelligence (IMINT) & Cyber-Physical Visual Reconnaissance Engine](#19-imagery-intelligence-imint--cyber-physical-visual-reconnaissance-engine)
 - [Interactive Live Computer Studio UI](#interactive-live-computer-studio-ui)
 - [Getting Started & Installation](#getting-started--installation)
   - [System Prerequisites](#system-prerequisites)
@@ -125,15 +126,45 @@ When starting in Black Box mode:
 | **📱 Mobile (Android & iOS)** | Dynamic APK/IPA tampering, SSL pinning bypass, physical USB touch automation, exported Activity/IPC fuzzing. | Authenticated mobile API flow testing, local SQLite database extraction (`run-as`), biometric logic bypasses. | Smali/Java bytecode decompilation, hardcoded secret harvesting, cryptographic implementation audits. |
 | **📟 Embedded, IoT & Network Appliances** | Dynamic host port & NIC discovery (`discover_hardware`), auto-baud sweeping, bootloader break sequence injection, gateway router fingerprinting. | Unauthenticated default credential auditing (Cisco, Fortinet, pfSense, OpenWrt, Mikrotik), serial interactive console shell takeover. | Hardware SPI flash dumping (`flashrom`), SquashFS/JFFS2 firmware extraction & secret carving (`binwalk`), UART pinout reverse engineering. |
 | **🏭 SCADA, Industrial Control Systems (ICS) & OT** | Passive OT subnet discovery, Modbus TCP slave ID sweeping, Siemens S7comm rack/slot enumeration, BACnet Who-Is broadcast, Web HMI fingerprinting. | Modbus holding register & coil manipulation (FC01-FC06, FC15/16), S7comm DB block extraction, Ethernet/IP CIP tag browsing, DNP3 CROB execution, OPC UA anonymous policy auditing. | Ladder logic & Structured Text safety interlock audit, engineering workstation project (.zap16, .acd) password extraction, RTOS firmware analysis (VxWorks, QNX), Purdue Model segmentation validation. |
-| **🛰️ SATCOM, Space Cyber Security & RF Systems** | Passive RF monitoring & IQ capture via SDRs (USRP B210, HackRF, LimeSDR, RTL-SDR), spectrum power sweeps, Hamlib `rotctl` tracking antenna dish steering, signal demodulation via GNU Radio / `gr-satellites`, cleartext telemetry detection. | Terminal WAN gateway audits (TR-069 port 7547, SNMPv1/v2c, HTTP/SSH), baseband firmware cryptographic validation, telecommand COP-1 anti-replay testing, and GPSDO 10 MHz reference clock lock checks. | Top 15 Aerospace Corporation SPARTA framework automated audits, dynamic AI-synthesized military TTP playbooks tailored to target CPU (`arm64`, `sparc_leon3`) & framing (`CCSDS_355`, `DVB-S2_GSE`), and production-ready remediation patch generation (C, Python, Bash, Config). |
+| **🛰️ SATCOM, Military Cyber EW & RF Spectrum Systems** | Passive RF monitoring & IQ capture via SDRs (USRP B210/X310, HackRF, LimeSDR, RTL-SDR), directional antenna tracking (Yagi, parabolic dish, helical) via Hamlib `rotctl`, SGP4 Doppler shift compensation ($\Delta f = f_0 \frac{v_{\text{rel}}}{c}$), wideband spectrum power sweeping, blind modulation classification, signal demodulation via GNU Radio / `gr-satellites` / `SatDump`. | Terminal WAN gateway audits (TR-069 port 7547, SNMPv1/v2c, HTTP/SSH), baseband firmware cryptographic validation, telecommand COP-1 anti-replay testing, GPSDO 10 MHz reference clock & 1 PPS synchronization, Galileo OSNMA GNSS anti-spoofing, RF link budget verification ($P_{\text{rx}} = P_{\text{tx}} + G_{\text{tx}} + G_{\text{rx}} - \text{FSPL}$), and receiver front-end LNA saturation defense. | Top 15 Aerospace Corporation SPARTA framework automated audits, Joint Pub 3-85 (JEMSO) / JP 3-12 compliance, dynamic AI-synthesized military TTP playbooks tailored to target CPU (`arm64`, `sparc_leon3`) & framing (`CCSDS_355`, `DVB-S2_GSE`), Jammer-to-Signal ($J/S$) margin calculations, and production-ready remediation patch generation (C, Python, Bash, Config). |
 | **🌐 OSINT & Geospatial Intelligence (GEOINT)** | 5-Layer Geolocation & Signal Triangulation, Solar Chronolocation (solar angles/shadow math), passive DNS, crt.sh Certificate Transparency mapping, ExifTool metadata carving, developer registry footprinting. | Deepfake & synthetic media forensic auditing (ELA, noise residuals, C2PA provenance), multi-engine reverse image aggregation (Google Lens, Yandex, Bing, TinEye), international license plate decoding. | Complete executive forensic PDF dossier generation, legal/ethical guardrail adherence (anti-doxxing, CWE-359, GDPR Art. 9 compliance), cryptographic SHA-256 evidence anchoring. |
 | **🔍 White-Box Code Property Graph (CPG) & Taint Engine** | Repository route & attack surface enumeration, framework route detection, third-party dependency vulnerability indexing. | Source-to-sink taint tracking (SQLi, RCE, SSRF, Deserialization), unmitigated dataflow analysis, dependency reachability verification (zero-false-positive SCA). | Deep AST code graph traversal, upstream caller blast radius modeling, automatic patch validation, and verified exploit path generation into the Unified Cyber Graph. |
 | **👁️ Autonomous Network Topology Inference ("Eye in the Sky")** | Mathematical TTL delta hop distance calculation, multi-port TTL divergence, TCP window size fingerprinting, DNS SRV record discovery (AD Domain Controllers & KDCs), DNSSEC NSEC zone walking. | Middlebox reverse proxy/load balancer detection (F5 BIG-IP, AWS ALB, Envoy, Cloudflare), Purdue zone classification (DMZ, Internal LAN, Database Enclave, Active Directory), Web/API proxy header & timing analysis. | Full cross-domain trust graph reconstruction (Web ➔ DB, Member Server ➔ Domain Controller, Cloud IAM AssumeRole bridges, dual-homed hardware routers), architectural weak point detection (DMZ-to-AD direct bridges, unsegmented databases). |
 | **🔬 AI-Driven Patch Diffing & Semantic Protocol Fuzzing** | Automated vendor patch download, unified diff parsing, 1-day vulnerability gap isolation, evolutionary grammar-aware fuzzing (HTTP/2, gRPC Protobuf, GraphQL, WebSockets, binary RPC). | AST delta categorization (bounds checks, auth enforcement, type validation), patch completeness scoring, bypass vector discovery (nested traversals, timing discrepancies, encoding slips). | Sibling unpatched function identification, multi-objective genetic breeding (latency spikes + fatal 5xx crashes), automated crash triage, and defensive regression test synthesis into the Unified Cyber Graph. |
+| **📷 Imagery Intelligence (IMINT) & Cyber-Physical Visual Recon** | Whiteboard architecture schematic vectorization, high-entropy secret carving (AWS, JWT, SSH, Wi-Fi PSK), visual hardware chassis & port fingerprinting (Cisco, Fortinet, Mikrotik, PLCs). | Surveillance camera coverage & ground blind-spot ray tracing ($d_{\min} = h \cdot \tan(\theta - \phi/2)$), parabolic SATCOM dish geometry solver ($f = D^2/16c$, f/D ratio, GEO look angles). | Steganography & trailing polyglot payload carving (JPEG EOI, PNG IEND), strict GDPR Art. 9/CWE-359 privacy guardrails (anti-facial surveillance/doxxing), and automatic topology synchronization into the Cyber Graph. |
 
 ---
 
-## 18 Core Architectural Pillars & Capabilities
+## 4-Step Verification Protocol & Anti-Confirmation Loop Circuit Breaker
+
+RedHunter AI eliminates the two greatest failure modes of autonomous AI security agents: **hallucinated/unverified vulnerability claims** and **confirmation loop traps** (repeatedly running the same probe commands in an endless loop).
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                  MANDATORY 4-STEP VERIFICATION PROTOCOL                                 │
+├───────────────────────────────────┬─────────────────────────────────────────────────────────────────────┤
+│ 1. SELF-CHECK                     │ "What concrete evidence supports this?" Cites status codes, bytes,  │
+│                                   │ timing deltas, or stack traces. Assumptions/banners are forbidden.  │
+├───────────────────────────────────┼─────────────────────────────────────────────────────────────────────┤
+│ 2. CROSS-REFERENCE                │ "Does this contradict anything?" Checks against baseline responses, │
+│                                   │ WAF challenge pages, stateful SYN proxies, and security boundaries. │
+├───────────────────────────────────┼─────────────────────────────────────────────────────────────────────┤
+│ 3. TOOL VERIFICATION              │ "Can I verify this with a targeted probe?" Executes non-destructive,│
+│                                   │ deterministic confirmation tests to confirm state divergence.       │
+├───────────────────────────────────┼─────────────────────────────────────────────────────────────────────┤
+│ 4. CONFIDENCE CALIBRATION         │ Labels findings: [CONFIRMED], [LIKELY], [POSSIBLE], [SPECULATIVE].  │
+│                                   │ Speculation is NEVER presented as fact in executive deliverables.   │
+└───────────────────────────────────┴─────────────────────────────────────────────────────────────────────┘
+```
+
+### Anti-Confirmation Loop Circuit Breaker (Max-2 Bounded Attempt Rule)
+- **Max-2 Bounded Attempts**: At most two (2) verification tool calls are allowed per technical hypothesis.
+- **Material Technique Mutation**: If Attempt 1 is ambiguous, Attempt 2 MUST use an alternative syntax, encoding, or parameter.
+- **Automated Circuit Breaker**: If Attempt 2 does not yield deterministic proof, the agent **immediately stops**, downgrades confidence to `[SPECULATIVE]` or `[POSSIBLE]`, records the lead in `ENGAGEMENT_NOTES.md`, and pivots to alternative attack surfaces.
+
+---
+
+## 19 Core Architectural Pillars & Capabilities
 
 ```mermaid
 graph TD
@@ -373,23 +404,82 @@ graph TD
     - Full chain of custody with SHA-256, SHA-512, and MD5 cryptographic hashes compliant with **Federal Rules of Evidence (FRE) Rule 902(14)** and **SWGDE** digital evidence standards.
   * **Strict Ethical & Legal Safety Guardrails**: Built-in guardrails strictly forbid unauthorized facial recognition surveillance, doxxing, or private human tracking (CWE-359, GDPR Art. 9).
 
-### 13. Satellite Communications (SATCOM), Space Cyber Security & Physical RF Radio Engine (Aerospace SPARTA Framework)
-* **What it does**: Provides military-grade cybersecurity assessment, passive RF reconnaissance, and automated vulnerability hotpatching for satellite terminals, spacecraft bus architectures, and ground stations, strictly adhering to **The Aerospace Corporation SPARTA (Space Attack Research & Tactic Analysis)** framework.
+### 13. Satellite Communications (SATCOM), Military Cyber Electronic Warfare (EW) & RF Spectrum Operations (Aerospace SPARTA & JEMSO Framework)
+* **What it does**: Provides military-grade cyber-electromagnetic spectrum operations (JEMSO), passive RF reconnaissance, and automated vulnerability hotpatching for satellite terminals, spacecraft bus architectures, tactical RF data links, and ground stations, strictly adhering to **Joint Publication 3-85 (Joint Electromagnetic Spectrum Operations)**, **Joint Publication 3-12 (Cyberspace Operations)**, and **The Aerospace Corporation SPARTA (Space Attack Research & Tactic Analysis)** framework.
 * **How it works**:
   * **Direct Physical Hardware Abstraction (Zero Mocks / Zero Simulations)**:
-    - **SDR Controller (`lib/security/hardware/satcom-physical-radio-controller.ts`)**: Direct host driver execution for **Ettus USRP B210/X310** (`uhd_find_devices`, `uhd_usrp_probe`, `uhd_rx_cfile`), **HackRF One** (`hackrf_info`, `hackrf_transfer`), **LimeSDR** (`LimeUtil`), and **RTL-SDR v3/v4** (`rtl_test`, `rtl_sdr`).
-    - **Antenna Tracking Rotator Interface**: Communicates directly with antenna positioners via the universal military and amateur **Hamlib `rotctl` / `rotctld` protocol** over TCP port 4533 or serial. Commands azimuth/elevation coordinates (`P <az> <el>`) and queries real-time tracking locks (`p`).
-    - **Physical GPSDO Clock Reference**: Validates 10 MHz reference clock and 1 PPS pulse synchronization on USRP hardware or GPSD daemon to defend against civil GPS spoofing.
-  * **Passive Spectrum Monitoring & Raw IQ Sample Capture**:
-    - Sweeps target frequency bands (L-Band 1.626 GHz Iridium/Inmarsat, Ku-Band 14.25 GHz VSAT, UHF 437 MHz CubeSats) without unauthorized RF transmission.
-    - Records raw 32-bit complex float IQ captures (`.raw`) to disk with automated signal-to-noise ratio (SNR) and center frequency telemetry.
+    - **SDR Controller (`lib/security/hardware/satcom-physical-radio-controller.ts`)**: Direct host driver execution for **Ettus USRP B210/X310** (`uhd_find_devices`, `uhd_usrp_probe`, `uhd_rx_cfile`), **HackRF One** (`hackrf_info`, `hackrf_transfer`, `hackrf_sweep`), **LimeSDR** (`LimeUtil`), and **RTL-SDR v3/v4** (`rtl_test`, `rtl_sdr`, `rtl_power`). Dynamic local oscillator (LO) tuning, sample rate matching, and direct IQ sample acquisition (complex float32/int16).
+    - **Directional Antenna Arrays**: Direct interface to directional **Yagi-Uda arrays** (VHF/UHF line-of-sight & tactical SATCOM), **Parabolic Reflector Dishes** (microwave C/X/Ku/Ka bands), and **Helical/QFH circularly polarized antennas** (RHCP/LHCP for satellite passes to eliminate Faraday rotation polarization fading).
+    - **RF Front-End Conditioning (LNA, PA & Bias-Tee)**: Active Low-Noise Amplifier (LNA) management for sub-microvolt signal reception ($-120\text{ dBm}$ to $-140\text{ dBm}$ sensitivity threshold), Power Amplifier (PA) management, Bias-Tee active DC power injection (3.3V/5.0V), and receiver dynamic range protection against 1 dB compression point ($P_{1\text{dB}}$) front-end saturation.
+    - **Physical GPSDO Clock Reference**: Validates 10 MHz reference clock and 1 PPS pulse synchronization on USRP hardware or GPSD daemon to enforce sub-part-per-billion frequency accuracy, coherent multi-channel phase alignment, and nanosecond timestamping.
+    - **Antenna Tracking Rotator Interface**: Communicates directly with dual-axis antenna positioners via the universal military and amateur **Hamlib `rotctl` / `rotctld` protocol** over TCP port 4533 or serial. Commands azimuth/elevation coordinates (`P <az> <el>`) and queries real-time tracking locks (`p`).
+    - **Orbital Mechanics & Real-Time Doppler Compensation**: SGP4 TLE orbital propagation (Norad two-line element sets) via Gpredict or internal SGP4 engine. Continuous dynamic Doppler frequency shift calculation ($\Delta f = f_0 \frac{v_{\text{rel}}}{c}$) dynamically feeding the SDR VFO frequency to maintain lock across satellite passes (AOS to LOS).
+  * **The 3 Military Electronic Warfare (EW) Pillars**:
+    - **1. Electronic Warfare Support (ES) / SIGINT & Spectrum Awareness**:
+      * Autonomous wideband frequency sweeping across tactical and satellite bands to establish baseline spectral electromagnetic environment (EME).
+      * Waterfall & Power Spectral Density (PSD) analysis to identify rogue carriers, burst transmissions, frequency hopping spread spectrum (FHSS) dwell patterns, and direct-sequence spread spectrum (DSSS) noise floors.
+      * Blind signal classification: extracts modulation schemes (BPSK, QPSK, 8PSK, 16APSK, FSK, GFSK, MSK), symbol rates ($R_s$), roll-off factors, and carrier-to-noise ratios ($C/N_0$).
+      * Emitter Direction Finding (DF): triangulating emitter bearing using directional antenna rotation (Yagi/dish) and received signal strength indication (RSSI) peak-power sweeps.
+    - **2. Electronic Protection (EP) / Defensive Hardening & Resilience**:
+      * Jamming resilience auditing: measuring Jammer-to-Signal ratio ($J/S$) and determining processing gain ($G_p = B_{\text{rf}} / R_b$). Auditing link margin against barrage, spot, and sweep jamming degradation.
+      * GNSS & PNT Anti-Spoofing Auditing: auditing GPS L1 C/A receivers for pseudorange jumps and clock bias rate-of-change anomalies; validating cryptographic authentication via **Galileo OSNMA** (Open Service Navigation Message Authentication); monitoring GPSDO clock holdover drift.
+      * RF Link Budget Verification: calculating link margin using the Friis transmission equation ($P_{\text{rx}} = P_{\text{tx}} + G_{\text{tx}} + G_{\text{rx}} - \text{FSPL} - L_{\text{atm}} - L_{\text{pol}} - L_{\text{cable}}$) to verify operational resilience under adverse atmospheric or standoff conditions.
+      * Front-End Overload Hardening: auditing receiver automatic gain control (AGC) response and testing passive RF bandpass/notch filtering to reject high-power out-of-band energy without LNA clipping.
+    - **3. Electronic Attack (EA) Resilience & Cyber-EW Convergence**:
+      * Cross-Layer Protocol Integrity: fuzzing Space Data Link Security (**CCSDS 355.0-B-1 SDLS**) encryption flags, anti-replay sequence counters, and telecommand (TC) validation to prevent RF-delivered cyber exploitation.
+      * Satellite Gateway & Firmware Resilience: auditing satellite terminal WAN interfaces (TR-069 port 7547, SNMPv1/v2c, HTTP/SSH) and baseband firmware binaries for hardcoded secrets, cryptographic weaknesses, and unauthorized telecommand execution pathways.
   * **Signal Processing & Telemetry Frame Decoding**:
     - Synthesizes production-ready **GNU Radio Companion Python flowgraphs** (`root_raised_cosine`, `costas_loop_cc`, `symbol_sync_cc`, `constellation_decoder_cb`) dynamically.
     - Directly executes **`gr-satellites`** and **`satdump`** CLI tools to demodulate and extract CCSDS 355.0-B-1, AX.25, DVB-S2 GSE, and NOAA weather telemetry frames.
   * **Dynamic Military-Approved SPARTA TTP Playbook Synthesizer (`lib/security/hardware/satcom-dynamic-ttp-engine.ts`)**:
     - Eliminates rigid static strings: dynamically analyzes target telemetry (carrier frequency, CPU architecture `arm64`/`sparc_leon3`/`x86_64`, framing standard, and modem OS).
     - Autonomously synthesizes custom, context-aware military audit scripts (Bash/Python/C) and production-ready remediation patches for all **Top 15 Aerospace Corporation SPARTA Controls** (`SPARTA-REC-0001` through `SPARTA-EXF-0015`).
-    - Grounded in military and space standards: **CCSDS 355.0-B-1 (SDLS)**, **CCSDS 232.1-B-2 (COP-1)**, **MIL-STD-188-164C/165B**, **DoD Zero Trust Space Enclave Reference**, **NSA CSfC Space**, and **Galileo OSNMA**.
+    - Grounded in military and space standards: **CCSDS 355.0-B-1 (SDLS)**, **CCSDS 232.1-B-2 (COP-1)**, **MIL-STD-188-164C/165B**, **Joint Publication 3-85**, **Joint Publication 3-12**, **DoD Zero Trust Space Enclave Reference**, **NSA CSfC Space**, and **Galileo OSNMA**.
+
+#### Operator Guidance & Step-by-Step Instructions
+
+##### 1. Physical Hardware Setup & Interfacing
+1. **SDR Connection**: Connect your SDR (Ettus USRP B210/X310, HackRF One, LimeSDR, or RTL-SDR) to a high-speed USB 3.0 / 10 GbE interface on the host machine.
+2. **Antenna & Front-End Setup**:
+   - For satellite passes / weak RF signals: Connect your directional antenna (Yagi-Uda or Parabolic Feedhorn) to the LNA RF IN port.
+   - Connect the LNA RF OUT port to the SDR RX port using low-loss coaxial cable (RG-213 / LMR-400).
+   - If using active Bias-Tee, ensure voltage is set correctly (3.3V or 5V DC) before powering on.
+3. **GPSDO Timing Lock**: Connect the 10 MHz reference clock and 1 PPS pulse SMA cables from your GPSDO to the `REF IN` and `PPS IN` ports of your USRP/SDR. Verify the lock LED lights solid.
+4. **Antenna Rotator (Hamlib)**:
+   - Connect your rotator controller (e.g., Yaesu, SPID, AlfaSpid) to your computer via USB/serial.
+   - Start the Hamlib rotator daemon:
+     ```bash
+     rotctld -m <rotator_model_id> -r /dev/ttyUSB0 -T 127.0.0.1 -t 4533
+     ```
+   - RedHunter AI will automatically communicate over TCP port 4533.
+
+##### 2. Operational Prompt Workflows (How to Command RedHunter AI)
+Simply prompt RedHunter AI in natural language; the autonomous agent will select the appropriate physical radio bridge tools:
+
+* **Scenario A: Hardware Discovery & Clock Synchronization Audit**
+  > *"RedHunter, discover all connected SDR hardware, check GPSDO 10 MHz reference clock and 1 PPS lock status, and query the antenna rotator position."*
+  - **Tool Executed**: `security_satcom_sparta_bridge(action: "discover_satcom_hardware")` and `security_satcom_sparta_bridge(action: "check_gpsdo_reference")`.
+
+* **Scenario B: Satellite Pass Tracking with Real-Time Doppler Compensation**
+  > *"RedHunter, track the upcoming NOAA-19 / CubeSat pass. Propagate orbital TLE using SGP4, steer the antenna rotator via Hamlib to maintain pointing lock, and dynamically compensate for Doppler frequency shift on our USRP B210."*
+  - **Tool Executed**: `security_satcom_sparta_bridge(action: "control_antenna_rotator", rotatorCommand: "set_position", rotatorAzimuth: 184.2, rotatorElevation: 42.6)`.
+
+* **Scenario C: Passive Spectrum Power Sweeping & IQ Capture**
+  > *"RedHunter, perform a passive spectrum power sweep on L-Band 1.6265 GHz with 25 dB LNA gain. Capture 5 seconds of 32-bit complex float IQ samples to disk without emitting RF, and plot the Power Spectral Density (PSD) to detect unmodulated carrier spikes."*
+  - **Tool Executed**: `security_satcom_sparta_bridge(action: "start_passive_monitoring", carrierFrequencyHz: 1626500000, durationSeconds: 5, gainDb: 25)`.
+
+* **Scenario D: GNU Radio Demodulation & Telemetry Extraction**
+  > *"RedHunter, process the captured IQ file through a synthesized GNU Radio flowgraph to demodulate QPSK and deframe CCSDS 355.0-B-1 SDLS telemetry."*
+  - **Tool Executed**: `security_satcom_sparta_bridge(action: "process_satellite_signal", framingProtocol: "CCSDS_355")`.
+
+* **Scenario E: Full Military SPARTA & Cyber-EW Resilience Audit**
+  > *"RedHunter, audit our SATCOM ground terminal gateway (192.168.1.1) against the Top 15 Aerospace SPARTA controls and Joint Pub 3-85 EW resilience guidelines. Synthesize deployable C/Python mitigation patches."*
+  - **Tool Executed**: `security_satcom_sparta_bridge(action: "audit_sparta_top15", targetIp: "192.168.1.1")`.
+
+##### 3. Strict Rules of Engagement (RoE)
+- **Passive by Default**: All RF spectrum operations default to passive reception and monitoring.
+- **Closed-Circuit Testing Only**: Any transmission testing (RF protocol fuzzing, jamming resilience validation) MUST be conducted inside shielded RF enclosures (TEM cells, Faraday cages) or via 50-ohm dummy load attenuators under authorized test range rules.
+
 
 ### 14. OSIRIS Live OSINT Matrix & Embedded Tactical Situational Awareness Platform
 * **What it does**: Ingests real-time multi-layer open source intelligence (OSINT) inspired by the **OSIRIS platform (`osirisai.live`)**, aggregating georeferenced public CCTV/traffic webcams, live ADS-B air traffic transponders, USGS seismic event streams, undersea fiber optic cable corridors, and astronomical solar day/night terminator lines.
@@ -481,6 +571,22 @@ graph TD
     - `patch_diff_analyze`: Ingests git diffs or source code versions, classifies vulnerability mechanisms, detects bypass vectors, and registers 1-day gaps into the Cyber Graph (`globalCyberGraph`).
     - `semantic_genetic_fuzz`: Deploys evolutionary protocol fuzzing campaigns with latency/crash-guided genetic feedback.
     - `fuzz_triage_crash`: Disassembles crash traces, unhandled exceptions, and latency anomalies into actionable reproduction harnesses.
+
+### 19. Imagery Intelligence (IMINT) & Cyber-Physical Visual Reconnaissance Engine
+* **What it does**: Bridges digital offensive operations with physical visual reality by extracting actionable technical network architecture, hardware models, credentials, and camera/RF geometry directly from photos, whiteboard diagrams, hardware faceplates, and satellite imagery.
+* **How it works**:
+  * **Whiteboard & Architecture Schematic Vectorizer (`imint_carve_architecture_diagram`)**: Parses whiteboard photos, hand-drawn network diagrams, or cloud schematics to extract subnets, firewalls, reverse proxies, and server nodes directly into RedHunter's active Cyber Graph and Network Topology Engine with Mermaid diagram rendering.
+  * **Visual Secret & Credential Carving (`imint_analyze_visual_asset`)**: Scans visual text for exposed developer keys (AWS `AKIA...`, GitHub `ghp_...`, JWT tokens, SSH keys, database URIs, Wi-Fi PSK) and applies the mandatory 4-Step Verification Protocol.
+  * **Hardware Chassis & Port Fingerprinting (`imint_hardware_fingerprint`)**: Analyzes physical server, switch, or firewall faceplates to classify port clusters (RJ45, SFP, DB9/RJ45 serial console, USB, terminal blocks) and identify default baud rates (9600 vs. 115200) and rollover pinouts for bootloader break injection.
+  * **Surveillance Camera & SATCOM Dish Geometry (`imint_camera_blindspot_calc`, `imint_solve_rf_dish_geometry`)**: Calculates ground blind-spot corridors beneath surveillance camera mounting masts ($d_{\min} = h \cdot \tan(\theta - \phi/2)$) and solves parabolic dish focal length ($f = D^2/16c$) and GEO look angles.
+  * **Steganography & Polyglot Carving**: Scans file bitstreams for payloads hidden past file terminators (JPEG `0xFFD9`, PNG `IEND`, GIF `0x3B`) and identifies embedded ZIP, GZIP, ELF, or PE polyglots with Shannon entropy analysis.
+  * **Strict Privacy & Anti-Doxxing Guardrails**: Rejects unconsented human facial recognition, biometric identity surveillance, or personal tracking (CWE-359, GDPR Art. 9).
+  * **Autonomous AI Tool Suite (`lib/ai/tools/imint-tool.ts`)**:
+    - `imint_analyze_visual_asset`: Master visual asset analyzer with steganography and secret carving.
+    - `imint_carve_architecture_diagram`: Whiteboard vectorizer syncing nodes into the Cyber Graph.
+    - `imint_hardware_fingerprint`: Port geometry and serial console parameter resolver.
+    - `imint_solve_rf_dish_geometry`: Parabolic dish focal length, f/D, and GEO look angle solver.
+    - `imint_camera_blindspot_calc`: Surveillance camera FoV and ground blind-spot ray tracer.
 
 ---
 
