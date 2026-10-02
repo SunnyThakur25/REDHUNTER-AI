@@ -746,6 +746,32 @@ Simply prompt RedHunter AI in natural language; the autonomous agent will select
     - **Embedded, IoT, Routers & RTOS**: Utilizes native **C**, **C++**, bare-metal **Assembly**, or **Lua/Perl** tailored to the target device's flash storage, CPU architecture, and memory constraints.
   * **Sandboxed Polyglot Toolchains**: Pre-installed and ready in the Kali sandbox runtime: `gcc`, `g++`, `clang`, `rustc`, `cargo`, `go`, `nasm`, `python3`, `node`, `perl`, `swiftc`, and cross-compilers (`arm-linux-gnueabihf-gcc`, `mips-linux-gnu-gcc`).
 
+### 22. Structured Human-In-The-Loop (HITL) Interactive Dialogue, Dual Execution Modes & Skill Workflow Recorder
+* **What it does**: Eliminates unstructured chat stalling, freeform text interruptions, and manual prompt fatigue by embedding **structured Human-In-The-Loop (HITL) interactive dialogue cards**, **Dual Agent Execution Modes (Supervised vs. Full Access)**, and an autonomous **Skill Workflow Recorder** directly into the agent runtime.
+* **Dual Agent Execution Modes**:
+  * **Supervised Mode (`ask_approval`)**: Enforces human-in-the-loop oversight. Whenever actions present security risks, parameters require disambiguation, or workflows branch, RedHunter AI cleanly pauses execution (`status: awaiting_user_input`, `needsUserInput: true`), presents an interactive card in the chat, and displays `🟡 RedHunter will continue after your reply` until the operator responds.
+  * **Full Access Mode (`full_access`)**: Operates **fully autonomously without human intervention**. All actions, file edits, and terminal commands execute with pre-granted authorization. If workflow routes or parameters are unspecified, RedHunter AI reasons independently, selects the optimal default strategy, and executes end-to-end without interrupting the operator.
+* **How it works**:
+  * **Structured Questionnaire Dialogue Cards (`ask_question`)**:
+    - When requirements are underspecified or multiple testing routes exist, RedHunter AI presents a structured questionnaire card.
+    - Features single-select radio buttons or multi-select checkboxes, custom write-in input box ("Other thoughts"), and an instant "Send" dispatch button.
+    - In Supervised Mode, execution pauses cleanly until answered; in Full Access Mode, the agent autonomously picks the recommended option.
+  * **Action & Permission Authorization Cards (`request_authorization`)**:
+    - Guards privileged operations (e.g. opening new tabs in the operator's active browser, executing invasive external network scans, writing flash memory over SPI/UART, or changing firewall state).
+    - Presents a structured modal displaying target environment, risk badge (`[LOW]`, `[MEDIUM]`, `[HIGH]`, `[CRITICAL]`), technical justification, and alternative fallback buttons (`[No, use RedHunter's sandbox browser]` vs `[Authorize ▾]`).
+    - In Full Access Mode, per-action authorization is pre-granted, allowing unattended campaign execution.
+  * **End-to-End Masked Credential Ingestion (`request_credential`)**:
+    - Securely prompts the user for session cookies, private tokens, or router enable secrets with masked input (`••••••••`) and client-side encryption.
+    - Bypasses chat history and LLM context entirely—injects credentials directly into target environment variables or session headers to prevent token leakage in logs.
+  * **Floating "Needs your input" Status Indicator**:
+    - Renders a pulsing yellow indicator `🟡 Needs your input` in the Live Mini-Computer Preview deck directly above the prompt bar whenever execution is suspended.
+    - Clicking the indicator auto-scrolls the operator directly to the active questionnaire or authorization card.
+  * **Dual Skill Representation & Autonomous Skill Workflow Recorder (`record_skill_workflow`)**:
+    - **What is the Skill Recorder?** An autonomous workflow capture engine that observes an operator or agent executing a task (e.g. solving a TryHackMe room, navigating a web dashboard, auditing an API), extracts sequence steps and DOM/CLI selectors, scrubs personal credentials, and compiles a reusable skill package.
+    - **Dual Skill Formats Handled**:
+      1. **User Skills JSON Format**: Stored and managed in the User Skills Menu (`app/hooks/useCustomSkills.ts`), allowing users to toggle, customize, import, and export skills as structured JSON (`CustomSkill` object with commands, CLI tools, and parameters).
+      2. **Agent Skills Open Standard (`SKILL.md`)**: Automatically synthesized into `skills/<skill_name>/SKILL.md` with YAML frontmatter, execution steps, and verification protocols, permanently registered in RedHunter's persistent skill bank (`lib/ai/skills/skill-registry.ts`) for 10x faster zero-hallucination repeat execution.
+
 ---
 
 ## Interactive Live Computer Studio UI
