@@ -34,7 +34,7 @@
 - [Tri-Mode Offensive Testing Engine](#tri-mode-offensive-testing-engine)
   - [The Power of Black Box: The True Autonomy Test](#the-power-of-black-box-the-true-autonomy-test)
   - [Multi-Surface Execution Matrix (Web, Network, Cloud, Mobile, Embedded/IoT, SATCOM/Space, OSINT/GEOINT)](#multi-surface-execution-matrix)
-- [15 Core Architectural Pillars & Capabilities](#15-core-architectural-pillars--capabilities)
+- [21 Core Architectural Pillars & Capabilities](#21-core-architectural-pillars--capabilities)
   - [1. Physical USB Mobile Hardware Bridge (Android & iOS)](#1-physical-usb-mobile-hardware-bridge-android--ios)
   - [2. Physical Hardware & Network Appliance Bridge (Routers, Switches, Firewalls, IoT)](#2-physical-hardware--network-appliance-bridge-routers-switches-firewalls-iot)
   - [3. Autonomous Dual-Browser Operator (Manus-Style Local + Cloud CDP)](#3-autonomous-dual-browser-operator-manus-style-local--cloud-cdp)
@@ -58,6 +58,8 @@
   - [17. Autonomous Network Topology Inference & Architecture Cartography ("Eye in the Sky")](#17-autonomous-network-topology-inference--architecture-cartography-eye-in-the-sky)
   - [18. AI-Driven Binary Diffing, 1-Day Patch Analysis & Semantic Genetic Protocol Fuzzing](#18-ai-driven-binary-diffing-1-day-patch-analysis--semantic-genetic-protocol-fuzzing)
   - [19. Imagery Intelligence (IMINT) & Cyber-Physical Visual Reconnaissance Engine](#19-imagery-intelligence-imint--cyber-physical-visual-reconnaissance-engine)
+  - [20. Autonomous Observe-to-Act (OODA) Agent Doctrine & Multi-Angle Testing Matrix](#20-autonomous-observe-to-act-ooda-agent-doctrine--multi-angle-testing-matrix)
+  - [21. Target-Aware Polyglot Engine & Native Low-Level Systems Execution](#21-target-aware-polyglot-engine--native-low-level-systems-execution)
 - [Interactive Live Computer Studio UI](#interactive-live-computer-studio-ui)
 - [Getting Started & Installation](#getting-started--installation)
   - [System Prerequisites](#system-prerequisites)
@@ -164,7 +166,7 @@ RedHunter AI eliminates the two greatest failure modes of autonomous AI security
 
 ---
 
-## 19 Core Architectural Pillars & Capabilities
+## 21 Core Architectural Pillars & Capabilities
 
 <div align="center">
   <p><b>Neo4j-Style Autonomous Graph Topology & Command Matrix — Live Swarm & Multi-Domain Pipeline</b></p>
@@ -297,6 +299,7 @@ flowchart LR
   * **Touch & Key Automation (`/system/bin/input`)**: Injects touch taps at exact pixel coordinates (`tap_screen [x, y]`), directional swipes (`swipe_screen [x1, y1, x2, y2, durationMs]`), text typing, and hardware buttons (`HOME`, `BACK`, `POWER`, `ENTER`, `RECENTS`).
   * **Lossless Visual Screen Capture**: Takes full 1080x2400 AMOLED screencaps, stores them to disk, and simultaneously runs `uiautomator dump` to parse the on-screen accessibility tree (text labels and clickable element bounds).
   * **App Lifecycle & Storage Audit**: Discovers installed third-party apps (`pm list packages -3`), extracts APK binaries (`pm path`), inspects sandboxed databases (`run-as <pkg> cat databases/...`), and fuzzes exported Activities (`am start`).
+  * **TCP Loopback Emulator Bridge (`connect_tcp 127.0.0.1:5555`)**: Connects dynamically to local desktop Android emulators (Android Studio AVD, Genymotion, BlueStacks, Nox, Corellium). Streams live screencaps to multimodal vision LLMs, monitors real-time Logcat syslog streams for leaked session tokens, and executes interactive UI and intent fuzzing in real time on virtual devices.
   * **Apple Ecosystem, iOS & macOS Mastery**:
     * **Native Languages**: Full support for AppleScript (`osascript`), JavaScript for Automation (JXA), Objective-C, and Swift.
     * **Desktop & UI Automation**: Synthesizes and executes AppleScript/JXA scripts to automate macOS applications, inject keystrokes, handle system dialogs, and trigger Shortcuts CLI (`shortcuts run`).
@@ -351,12 +354,35 @@ flowchart LR
 
 4. **Silicon Flash Memory & Hardware Programmers (SPI NOR/NAND, CH341A, FT232H)**:
    * **Test-Clip SPI Flash Extraction (`dump_spi_flash`)**: Uses external programmers (CH341A, FT232H) connected to SPI flash chips via 8-pin SOIC test clips to dump physical flash memory without desoldering.
-   * **Firmware Deconstruction & Credential Carving (`unpack_and_audit_firmware`)**: Runs automated `binwalk --extract --matryoshka` pipelines to unpack SquashFS, JFFS2, and CramFS partitions, extracting `/etc/shadow` password hashes, hardcoded private keys, Wi-Fi credentials, and API tokens.
+   * **Firmware Deconstruction & Binary Reverse Engineering (`unpack_and_audit_firmware`)**: Runs automated `binwalk -Me`, `sasquatch`, and `ubireader` pipelines to unpack SquashFS, JFFS2, and UBIFS partitions. Disassembles proprietary web servers, network daemons (GoAhead, Boa, mini_httpd), and CGI binaries in Ghidra and radare2 to isolate buffer overflows, command injections in NVRAM parsers, and hardcoded backdoor credentials.
+   * **Sandbox QEMU Emulation & Dynamic Socket Fuzzing**: Emulates cross-architecture target binaries (`qemu-arm-static`, `qemu-mips-static`, `qemu-aarch64-static`) directly inside the Kali sandbox, driving dynamic fuzzing with AFL++ against network services.
+   * **Stateful Fieldbus Protocol Fuzzing**: Dissects proprietary binary serial frames, RS-485 packets, CAN bus arbitration IDs, and raw UART streams; generates protocol grammar models and executes stateful mutation fuzzing directly over serial/Ethernet bridge interfaces.
+   * **Cold-Boot Bootloader Break (`bootloader_break`)**: Halts bootloaders (U-Boot, RedBoot, CFE, Cisco ROMmon) during power-on and modifies kernel bootargs (`init=/bin/sh`) to drop into unauthenticated root shells on physical serial consoles.
 
 5. **How the Autonomous AI Agents Work in Real Time**:
    * **Zero-Guessing Discovery**: Agents never hallucinate COM ports or assume default subnets; they execute `action: "discover_hardware"` as mandatory Step 1.
    * **Dynamic Tool Installation**: If a required hardware tool (e.g. `flashrom`, `binwalk`, `minicom`, `screen`, `picocom`, `openocd`, `esptool`, `scapy`) is missing, the AI autonomously installs it or compiles custom C/Python harnesses.
    * **Anti-Looping Circuit Breaker (80/20 Rule)**: Limits failed attempts on non-responsive hardware interfaces to 3 turns. If an interface yields no authenticated shell within 3 turns, it is automatically pruned, and the AI pivots to the next physical interface.
+
+* **Autonomous Host Hardware Discovery & Cross-Platform Toolchain Resolver**:
+  * **Dynamic Host Bus Interrogation (`lib/security/hardware/host-hardware-discovery.ts`)**:
+    - Queries the actual host machine operating system dynamically without blind guessing:
+      * **Windows**: Interrogates WMI (`Win32_SerialPort`, `Win32_PnPEntity`) and PowerShell net adapters.
+      * **Linux**: Reads `/sys/class/tty/`, `/dev/serial/by-id/`, `lsusb`, and `ip link`.
+      * **macOS**: Inspects `ioreg -p IOUSB` and `system_profiler SPUSBDataType`.
+    - Automatically discovers USB-to-UART bridge chips (FTDI FT232, Silicon Labs CP210x, WCH CH340, Prolific PL2303), physical Ethernet interfaces (Realtek, Intel, Broadcom), attached mobile devices (ADB / iOS `usbmuxd`), and silicon programmers (CH341A, Bus Pirate, J-Link).
+  * **Cross-Platform Toolchain Resolution (`lib/utils/host-toolchain-resolver.ts`)**:
+    - Automatically identifies missing CLI binaries on the host (`adb`, `minicom`, `tshark`, `flashrom`, `esptool`) and constructs non-interactive installation plans across all major package managers:
+      * **Arch / Manjaro Linux**: `pacman -S --noconfirm <pkg>`
+      * **Fedora / RHEL / CentOS**: `dnf install -y <pkg>`
+      * **Debian / Ubuntu / Kali**: `apt-get install -y <pkg>`
+      * **macOS**: `brew install <pkg>`
+      * **Windows**: `winget install --silent <pkg>` or `choco install -y <pkg>`
+  * **Live Execution Transparency & Real-Time Timeline Streaming**:
+    - Hardware bridge actions executed on the host stream real-time timeline events into the operator UI rather than running silently in the background.
+    - Full visibility into executed commands, return codes, and raw device serial responses.
+  * **Dual-Target Desktop Computer Use**:
+    - Supports `target: "host"` for automating native desktop applications (e.g. Wireshark, proprietary OEM flashing software, radio control panels) alongside `target: "sandbox"` for isolated Kali Linux XFCE4 virtual desktop operations.
 
 ### 3. Autonomous Dual-Browser Operator (Manus-Style Local + Cloud CDP)
 * **What it does**: Automates web application penetration testing through two complementary browser engines.
@@ -655,21 +681,70 @@ Simply prompt RedHunter AI in natural language; the autonomous agent will select
     - `semantic_genetic_fuzz`: Deploys evolutionary protocol fuzzing campaigns with latency/crash-guided genetic feedback.
     - `fuzz_triage_crash`: Disassembles crash traces, unhandled exceptions, and latency anomalies into actionable reproduction harnesses.
 
-### 19. Imagery Intelligence (IMINT) & Cyber-Physical Visual Reconnaissance Engine
-* **What it does**: Bridges digital offensive operations with physical visual reality by extracting actionable technical network architecture, hardware models, credentials, and camera/RF geometry directly from photos, whiteboard diagrams, hardware faceplates, and satellite imagery.
+### 19. Imagery Intelligence (IMINT), Military Thermographic Reconnaissance & Cyber-Physical Visual Intelligence
+* **What it does**: Bridges digital offensive operations with physical visual and electromagnetic reality by extracting actionable technical network architecture, hardware models, credentials, camera/RF geometry, and **NATO STANAG 3736 / 4559 radiometric thermographic intelligence** directly from photos, whiteboard diagrams, hardware faceplates, and thermal/infrared (LWIR/MWIR/SWIR) imagery.
 * **How it works**:
+  * **Military-Standard Thermographic & Infrared IMINT Analysis (`imint_analyze_thermal_infrared`)**:
+    - **Doctrine Compliance**: Adheres strictly to **NATO STANAG 3736 / 4559** (Imagery Intelligence & Reconnaissance) and MIL-STD radiometric thermal sensor standards.
+    - **Multi-Band Infrared Processing**: Evaluates sensor spectral bands across **LWIR (8–14 µm)** uncooled microbolometers, **MWIR (3–5 µm)** tactical FLIR cooled targeting pods, and **SWIR (0.9–1.7 µm)** atmospheric haze penetration and active laser designation (1064 nm / 1550 nm).
+    - **Dynamic Radiometric Palette Auto-Detection**: Samples color space distributions to automatically classify palettes: **Rainbow / Jet**, **Ironbow**, **White-Hot** (direct luminance), **Black-Hot** (inverted luminance), and **Arctic** false-color displays with continuous HSV color-wheel phase unwrapping.
+    - **Mathematical Radiative Physics (Stefan-Boltzmann & Wien's Law)**:
+      * **Radiative Exitance**: Calculates radiated thermal exitance $M = \epsilon \cdot \sigma \cdot T_{\text{max, K}}^4 \text{ (W/m}^2\text{)}$ using the Stefan-Boltzmann constant ($\sigma = 5.670374419 \times 10^{-8} \text{ W}/(\text{m}^2\cdot\text{K}^4)$) and calibrated material emissivities ($\epsilon$ for painted steel armor $0.90$, asphalt $0.93$, rubber tires/tracks $0.94$, human skin $0.98$).
+      * **Peak Emission Wavelength**: Computes blackbody peak wavelength $\lambda_{\text{peak}} = 2897.77 / T_{\text{max, K}} \text{ (}\mu\text{m)}$ according to Wien's displacement law.
+      * **Apparent Thermal Contrast**: Calculates target-to-background contrast ratio $C_{th} = (T_{\text{target}} - T_{\text{background}}) / T_{\text{ambient}}$.
+    - **Spatial Connected-Component Hotspot Clustering**: Divides the thermal matrix into spatial cells, clusters contiguous elevated pixels ($I_{\text{norm}} \ge 0.65$), extracts pixel bounding boxes $[x, y, w, h]$, and classifies targets into tactical roles (`engine_powertrain`, `exhaust_plume`, `wheel_friction`, `hvac_exhaust`, `personnel`, `subsurface_anomaly`).
+    - **Tactical Vehicular Kinetic State Profiling**:
+      * **`active_running`**: Engine compartment heat soak ($> 50^\circ\text{C}$), high-temperature exhaust dispersion ($> 65^\circ\text{C}$), and rolling tire/track friction heat bands on ground terrain ($> 4^\circ\text{C}$ above ambient). Identifies vehicle operational within $< 15$ minutes.
+      * **`recent_heat_soak`**: High engine block thermal mass ($> 35^\circ\text{C}$) with cooled exhaust manifold and no active rolling friction tracks. Inferred shutdown dwell time: 15–45 minutes.
+      * **`cold_dwell`**: Complete thermal equilibrium with ambient terrain ($\Delta T < 3.5^\circ\text{C}$), confirming vehicle stationary dwell $> 6$ hours.
+    - **Facility Infrastructure & Subterranean Anomaly Analysis**: Detects active forced-air rooftop HVAC plumes, server compute cluster localized dissipation, building envelope insulation loss, and phase-lag thermal inertia differentials ($\Gamma = \sqrt{k \rho c}$) marking buried bunkers, conduits, or excavated backfilled trenches.
+    - **Zero-Mock Dynamic Execution**: Real pixel bitstreams are decoded dynamically from JPEG (`jpeg-js`), PNG (native `zlib` IDAT decompression), BMP (stride-aligned bitstream parsing), or raw RGBA buffers—**zero mocks, zero fake delays, and zero hardcoded placeholder strings**.
   * **Whiteboard & Architecture Schematic Vectorizer (`imint_carve_architecture_diagram`)**: Parses whiteboard photos, hand-drawn network diagrams, or cloud schematics to extract subnets, firewalls, reverse proxies, and server nodes directly into RedHunter's active Cyber Graph and Network Topology Engine with Mermaid diagram rendering.
-  * **Visual Secret & Credential Carving (`imint_analyze_visual_asset`)**: Scans visual text for exposed developer keys (AWS `AKIA...`, GitHub `ghp_...`, JWT tokens, SSH keys, database URIs, Wi-Fi PSK) and applies the mandatory 4-Step Verification Protocol.
+  * **Visual Secret & Credential Carving (`imint_analyze_visual_asset`)**: Scans visual text for exposed developer keys (AWS `AKIA...`, GitHub `ghp_...`, JWT tokens, SSH keys, database URIs, Wi-Fi PSK) and applies the mandatory 4-Step Verification Protocol. Supports `assetType: "thermal_infrared"` to trigger integrated thermographic analysis automatically.
   * **Hardware Chassis & Port Fingerprinting (`imint_hardware_fingerprint`)**: Analyzes physical server, switch, or firewall faceplates to classify port clusters (RJ45, SFP, DB9/RJ45 serial console, USB, terminal blocks) and identify default baud rates (9600 vs. 115200) and rollover pinouts for bootloader break injection.
   * **Surveillance Camera & SATCOM Dish Geometry (`imint_camera_blindspot_calc`, `imint_solve_rf_dish_geometry`)**: Calculates ground blind-spot corridors beneath surveillance camera mounting masts ($d_{\min} = h \cdot \tan(\theta - \phi/2)$) and solves parabolic dish focal length ($f = D^2/16c$) and GEO look angles.
   * **Steganography & Polyglot Carving**: Scans file bitstreams for payloads hidden past file terminators (JPEG `0xFFD9`, PNG `IEND`, GIF `0x3B`) and identifies embedded ZIP, GZIP, ELF, or PE polyglots with Shannon entropy analysis.
   * **Strict Privacy & Anti-Doxxing Guardrails**: Rejects unconsented human facial recognition, biometric identity surveillance, or personal tracking (CWE-359, GDPR Art. 9).
   * **Autonomous AI Tool Suite (`lib/ai/tools/imint-tool.ts`)**:
-    - `imint_analyze_visual_asset`: Master visual asset analyzer with steganography and secret carving.
+    - `imint_analyze_thermal_infrared`: NATO STANAG 3736 / 4559 radiometric thermographic analyzer for LWIR, MWIR, and SWIR imagery.
+    - `imint_analyze_visual_asset`: Master visual asset analyzer with steganography, secret carving, and integrated thermal processing.
     - `imint_carve_architecture_diagram`: Whiteboard vectorizer syncing nodes into the Cyber Graph.
     - `imint_hardware_fingerprint`: Port geometry and serial console parameter resolver.
     - `imint_solve_rf_dish_geometry`: Parabolic dish focal length, f/D, and GEO look angle solver.
     - `imint_camera_blindspot_calc`: Surveillance camera FoV and ground blind-spot ray tracer.
+
+---
+
+### 20. Autonomous Observe-to-Act (OODA) Agent Doctrine & Multi-Angle Testing Matrix
+* **What it does**: Completely eliminates the passive "command-echoing bot" limitation where an AI waits for step-by-step user prompts. RedHunter AI operates as an autonomous principal researcher executing an **Observe -> Orient -> Decide -> Act (OODA)** loop that investigates targets across **5 orthogonal testing dimensions** and proactively presents actionable deep-dive exploration roadmaps.
+* **How it works**:
+  * **The Observe-to-Act Autonomous Agent Loop**:
+    - **Observe**: Inspects target repositories, network perimeter geometry, exposed ports, or attached devices without requiring step-by-step instructions.
+    - **Orient**: Identifies trust boundaries, authentication states, data sinks, and high-value architectural assets.
+    - **Decide**: Formulates competing attack hypotheses (Analysis of Competing Hypotheses - ACH) to evaluate potential exploit paths.
+    - **Act**: Autonomously initiates deep probes and verification checks using available sandbox tools, browser automation, and hardware bridges.
+  * **5-Dimensional Multi-Angle Testing Matrix**:
+    1. **Dynamic Runtime & Real-Time Interaction (DAST)**: Live application execution, parameter fuzzing, race conditions, memory/IPC state, interactive emulators/devices (ADB bridge, intent fuzzing, UI navigation, local storage forensics, syslog/logcat monitoring, runtime hooks).
+    2. **Deep Code, Logic & Data Flow (SAST / AST)**: Source-to-sink taint tracking, state machine desync, authorization barriers (BOLA/BFLA/IDOR), cryptographic key derivation and lifecycle, timing side-channels, and business logic inversion.
+    3. **API, Network & Protocol Wire Dynamics**: HTTP framing anomalies (CL.TE/TE.CL desync), REST/GraphQL parameter tampering, WebSocket/gRPC fuzzing, session lifecycle validation, and SSRF token hops.
+    4. **Configuration, Secrets & Supply Chain**: Hardcoded keys/credentials, IAM permission boundaries, dependency vulnerabilities, build configurations, and container/sandbox escape surfaces.
+    5. **Physical Hardware, Embedded, SCADA/ICS & RF/SATCOM**: Active bare-metal engagement, firmware disassembly, stateful bus fuzzing, bootloader breaks, and closed-circuit RF telecommand validation.
+  * **Proactive Deep-Dive Guidance & Strategic Branching**:
+    - Instead of ending turns with generic summaries, the agent automatically presents 2–3 concrete "Strategic Deep-Dive Angles" (e.g. *Angle A: Live dynamic intent fuzzing on the emulator*, *Angle B: Cryptographic key derivation audit*, *Angle C: API authorization boundary fuzzing*).
+    - In autonomous Agent Mode, the agent begins pursuing the highest-yield angle while offering immediate execution options to the user.
+
+### 21. Target-Aware Polyglot Engine & Native Low-Level Systems Execution
+* **What it does**: Moves decisively beyond interpreted script limitations (avoiding blind reliance on Python) to author, compile, and execute target-native systems code across Windows, macOS, Linux, and embedded hardware architectures.
+* **Why It Matters**: Python is ideal for rapid scripting, but it introduces heavy interpreter dependencies, memory overhead, and GIL constraints. Low-level binary exploitation, kernel drivers, custom shellcode, and memory-constrained IoT devices demand native compilation.
+* **How it works**:
+  * **Target-Aware Language Selection**:
+    - **Binary & Kernel Exploitation**: Authors native **C**, **C++**, or raw **Assembly** (`ARM64`, `x86_64`, `x86`, `MIPS`, `RISC-V`) for custom shellcode, ROP/JOP chains, heap grooming, kernel drivers, and memory manipulation without interpreter overhead.
+    - **High-Performance & Standalone Tools**: Authors **Rust** or **Go** for zero-cost abstractions, massive concurrency, memory-safe harnesses, and static binaries that execute on targets without dependencies.
+    - **Windows Systems**: Utilizes **C/C++** (Win32 APIs, NTDLL native syscalls, AMSI bypasses), **C#**, **PowerShell**, or **MASM**.
+    - **macOS & Apple Ecosystem**: Utilizes **Objective-C**, **Swift**, **AppleScript / JXA**, Mach messaging, and **ARM64** assembly.
+    - **Linux & Containers**: Utilizes native **C** (direct kernel syscalls, eBPF, io_uring, raw netlink sockets), **Rust**, **Bash**, and **Perl**.
+    - **Embedded, IoT, Routers & RTOS**: Utilizes native **C**, **C++**, bare-metal **Assembly**, or **Lua/Perl** tailored to the target device's flash storage, CPU architecture, and memory constraints.
+  * **Sandboxed Polyglot Toolchains**: Pre-installed and ready in the Kali sandbox runtime: `gcc`, `g++`, `clang`, `rustc`, `cargo`, `go`, `nasm`, `python3`, `node`, `perl`, `swiftc`, and cross-compilers (`arm-linux-gnueabihf-gcc`, `mips-linux-gnu-gcc`).
 
 ---
 
@@ -825,11 +900,20 @@ redhunter-ai/
 │   │   ├── agent-desktop.ts                # 4-Engine Linux Virtual Desktop computer use
 │   │   └── screen-capture.ts               # Shared memory mss/scrot frame grabber
 │   ├── security/
+│   │   ├── imint/                          # NATO STANAG 3736/4559 radiometric thermography & visual recon
+│   │   ├── hardware/                       # Host bus discovery, auto-baud serial, bootloader break & SPI flash
+│   │   ├── topology/                       # Network topology cartography, TTL hop solver & middlebox detection
+│   │   ├── patch/                          # 1-Day patch diffing, AST gap analysis & bypass vector discovery
+│   │   ├── fuzzing/                        # Semantic genetic protocol fuzzer & crash triage
+│   │   ├── codegraph/                      # Code Property Graph (AST/CFG/DDG) & taint reachability engine
 │   │   ├── dag/                            # Super-Agent Orchestrator & DAG execution
 │   │   ├── memory/                         # Tri-tier memory (Episodic, Semantic, Skills)
 │   │   ├── stealth/                        # Tactical evasion & WAF detection
 │   │   ├── hypothesis/                     # Polyglot logic and protocol fuzzers
 │   │   └── reporting/                      # Deliverable generator (CVSS 3.1/4.0, Mermaid)
+│   ├── utils/
+│   │   ├── host-toolchain-resolver.ts      # Multi-distro package manager resolver (pacman, dnf, apt, brew, winget)
+│   │   └── sandbox-file-utils.ts           # Zero-trust upload quarantine & container dispatch
 │   ├── mcp/
 │   │   ├── mcp-client.ts                   # Anthropic Model Context Protocol client
 │   │   └── mcp-server.ts                   # Standardized MCP server implementation
