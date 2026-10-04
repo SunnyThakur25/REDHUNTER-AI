@@ -134,6 +134,7 @@ When starting in Black Box mode:
 | **👁️ Autonomous Network Topology Inference ("Eye in the Sky")** | Mathematical TTL delta hop distance calculation, multi-port TTL divergence, TCP window size fingerprinting, DNS SRV record discovery (AD Domain Controllers & KDCs), DNSSEC NSEC zone walking. | Middlebox reverse proxy/load balancer detection (F5 BIG-IP, AWS ALB, Envoy, Cloudflare), Purdue zone classification (DMZ, Internal LAN, Database Enclave, Active Directory), Web/API proxy header & timing analysis. | Full cross-domain trust graph reconstruction (Web ➔ DB, Member Server ➔ Domain Controller, Cloud IAM AssumeRole bridges, dual-homed hardware routers), architectural weak point detection (DMZ-to-AD direct bridges, unsegmented databases). |
 | **🔬 AI-Driven Patch Diffing & Semantic Protocol Fuzzing** | Automated vendor patch download, unified diff parsing, 1-day vulnerability gap isolation, evolutionary grammar-aware fuzzing (HTTP/2, gRPC Protobuf, GraphQL, WebSockets, binary RPC). | AST delta categorization (bounds checks, auth enforcement, type validation), patch completeness scoring, bypass vector discovery (nested traversals, timing discrepancies, encoding slips). | Sibling unpatched function identification, multi-objective genetic breeding (latency spikes + fatal 5xx crashes), automated crash triage, and defensive regression test synthesis into the Unified Cyber Graph. |
 | **📷 Imagery Intelligence (IMINT) & Cyber-Physical Visual Recon** | Whiteboard architecture schematic vectorization, high-entropy secret carving (AWS, JWT, SSH, Wi-Fi PSK), visual hardware chassis & port fingerprinting (Cisco, Fortinet, Mikrotik, PLCs). | Surveillance camera coverage & ground blind-spot ray tracing ($d_{\min} = h \cdot \tan(\theta - \phi/2)$), parabolic SATCOM dish geometry solver ($f = D^2/16c$, f/D ratio, GEO look angles). | Steganography & trailing polyglot payload carving (JPEG EOI, PNG IEND), strict GDPR Art. 9/CWE-359 privacy guardrails (anti-facial surveillance/doxxing), and automatic topology synchronization into the Cyber Graph. |
+| **🔬 Deep DFIR & Intelligence-Grade Forensics** | Raw disk carving (`.dd`, `.raw`), magic-byte inspection, automated firmware volume extraction (`binwalk`), network PCAP session parsing (`zeek`), TLS Client Hello JA4 calculation (`t13d...`) & C2 profiling (Cobalt Strike, Sliver, Lumma). | Volatility 3 memory triage (`malfind`, `pslist`, `netscan`), NTFS dual-attribute ($SI vs $FN) timestomp anomaly detection, nanosecond zeroing detection, Prefetch/ShimCache/Amcache correlation, Linux DKOM hidden process isolation (`task_struct` vs `/proc`), hidden LKM module auditing, syscall table hijacking detection, covert eBPF hook auditing. | Full memory crash dumps ($rip, $rsp, $rbp) root-cause analysis (RCA), CWE classification (CWE-120/416), automated C/Rust hotpatch synthesis, UEFI/BIOS firmware volume (FV/FFS) cryptographic hashing & bootkit hunting (BlackLotus, CosmicStrand), Secure Boot dbx revocation verification, mathematical Haversine impossible travel speed calculation ($V > 950\text{ km/h}$) & cloud token replay detection, automated YARA synthesis, and Unified Cyber Graph blast radius & attack path mapping. |
 
 ---
 
@@ -359,18 +360,32 @@ flowchart LR
    * **Stateful Fieldbus Protocol Fuzzing**: Dissects proprietary binary serial frames, RS-485 packets, CAN bus arbitration IDs, and raw UART streams; generates protocol grammar models and executes stateful mutation fuzzing directly over serial/Ethernet bridge interfaces.
    * **Cold-Boot Bootloader Break (`bootloader_break`)**: Halts bootloaders (U-Boot, RedBoot, CFE, Cisco ROMmon) during power-on and modifies kernel bootargs (`init=/bin/sh`) to drop into unauthenticated root shells on physical serial consoles.
 
-5. **How the Autonomous AI Agents Work in Real Time**:
-   * **Zero-Guessing Discovery**: Agents never hallucinate COM ports or assume default subnets; they execute `action: "discover_hardware"` as mandatory Step 1.
-   * **Dynamic Tool Installation**: If a required hardware tool (e.g. `flashrom`, `binwalk`, `minicom`, `screen`, `picocom`, `openocd`, `esptool`, `scapy`) is missing, the AI autonomously installs it or compiles custom C/Python harnesses.
+5. **Universal Removable Storage & Digital Forensics (USB Pen Drives, External SSDs/HDDs, SD/microSD Cards)**:
+   * **Automated Physical Storage Discovery**: Dynamically scans all connected mass storage devices, USB thumb drives, external drives, and SD/microSD cards across Windows, Linux, and macOS via `discover_hardware` (`storageDevices`). Identifies drive paths (`\\.\PhysicalDriveX`, `/dev/sdX`, `/dev/diskX`), volume labels, partition layouts (MBR/GPT), filesystem types (FAT32, exFAT, NTFS, ext4, APFS), health status, and read-only write-block states.
+   * **Bit-Stream Forensic Disk Imaging**: Performs bit-by-bit raw forensic acquisition using `dd` or `dcfldd` (`bs=4M conv=noerror,sync status=progress`), computing SHA-256 and MD5 cryptographic hashes pre- and post-acquisition to verify chain of custody compliant with SWGDE and FRE Rule 902(14).
+   * **Automated File Carving & Deleted Data Recovery**: Runs `photorec`, `foremost`, and `scalpel` directly against raw disk images or physical partitions to carve lost, deleted, or hidden documents, images, video, databases, and binary artifacts from unallocated clusters.
+   * **Partition & Boot Sector Reconstruction**: Utilizes `testdisk` to analyze corrupted partition tables, recover deleted partitions, and reconstruct damaged boot sectors (FAT/NTFS/ext).
+   * **Deep Inode & MACB Timeline Analysis**: Drives The Sleuth Kit (`fls`, `icat`, `mmls`, `fsstat`) to parse raw filesystem metadata structures, extract deleted inode pointers, and reconstruct chronological MACB activity timelines.
+
+6. **Autonomous Hardware Identification, Web Intelligence & Dynamic Adaptation (Unfamiliar / Obscure Hardware)**:
+   * **Zero "Unsupported Device" Refusal**: The AI red team operator never declares an unfamiliar microcontroller, proprietary IoT appliance, or obscure USB device "unsupported".
+   * **Hardware Identifier Extraction**: Autonomously queries USB Vendor ID / Product ID (VID/PID), PCI IDs, device descriptors, serial responses, or chip packaging markings.
+   * **Autonomous Dynamic Web Research (`web_search`)**: Automatically queries online engineering datasheets, pinout schematics, default baud rates, communication protocols (I2C, SPI, UART, Modbus, CAN, JTAG), and default credential matrices.
+   * **Polyglot Dynamic Harness Synthesis**: Generates, compiles, and executes custom driver/test harnesses on the fly in the optimal language (Python with `pyserial`, Go, Rust, C/C++, or PowerShell) to interact with and exploit the target device without requiring pre-baked vendor tools.
+
+7. **How the Autonomous AI Agents Work in Real Time**:
+   * **Zero-Guessing Discovery**: Agents never hallucinate COM ports, drive letters, or default subnets; they execute `action: "discover_hardware"` as mandatory Step 1.
+   * **Dynamic Tool Installation**: If a required hardware tool (e.g. `flashrom`, `binwalk`, `minicom`, `screen`, `picocom`, `openocd`, `esptool`, `scapy`, `photorec`, `testdisk`, `sleuthkit`) is missing, the AI autonomously installs it or compiles custom C/Python harnesses.
+   * **Dynamic Self-Verification Loops**: Continuously tests and verifies operational results at each step (auto-baud lock with entropy checks, SPI flash JEDEC ID verification, bit-stream SHA-256 hash validation, network response validation) and automatically adapts parameters upon any anomaly.
    * **Anti-Looping Circuit Breaker (80/20 Rule)**: Limits failed attempts on non-responsive hardware interfaces to 3 turns. If an interface yields no authenticated shell within 3 turns, it is automatically pruned, and the AI pivots to the next physical interface.
 
 * **Autonomous Host Hardware Discovery & Cross-Platform Toolchain Resolver**:
   * **Dynamic Host Bus Interrogation (`lib/security/hardware/host-hardware-discovery.ts`)**:
     - Queries the actual host machine operating system dynamically without blind guessing:
-      * **Windows**: Interrogates WMI (`Win32_SerialPort`, `Win32_PnPEntity`) and PowerShell net adapters.
-      * **Linux**: Reads `/sys/class/tty/`, `/dev/serial/by-id/`, `lsusb`, and `ip link`.
-      * **macOS**: Inspects `ioreg -p IOUSB` and `system_profiler SPUSBDataType`.
-    - Automatically discovers USB-to-UART bridge chips (FTDI FT232, Silicon Labs CP210x, WCH CH340, Prolific PL2303), physical Ethernet interfaces (Realtek, Intel, Broadcom), attached mobile devices (ADB / iOS `usbmuxd`), and silicon programmers (CH341A, Bus Pirate, J-Link).
+      * **Windows**: Interrogates WMI (`Win32_SerialPort`, `Win32_PnPEntity`), PowerShell storage cmdlets (`Get-Disk`, `Get-Partition`), and network adapters.
+      * **Linux**: Reads `/sys/class/tty/`, `/dev/serial/by-id/`, `lsusb`, `lsblk -J -b -o ...`, and `ip link`.
+      * **macOS**: Inspects `ioreg -p IOUSB`, `system_profiler SPUSBDataType`, and `diskutil list -plist`.
+    - Automatically discovers USB-to-UART bridge chips (FTDI FT232, Silicon Labs CP210x, WCH CH340, Prolific PL2303), physical Ethernet interfaces (Realtek, Intel, Broadcom), removable storage devices (USB drives, external SSDs/HDDs, SD cards), attached mobile devices (ADB / iOS `usbmuxd`), and silicon programmers (CH341A, Bus Pirate, J-Link).
   * **Cross-Platform Toolchain Resolution (`lib/utils/host-toolchain-resolver.ts`)**:
     - Automatically identifies missing CLI binaries on the host (`adb`, `minicom`, `tshark`, `flashrom`, `esptool`) and constructs non-interactive installation plans across all major package managers:
       * **Arch / Manjaro Linux**: `pacman -S --noconfirm <pkg>`
@@ -384,7 +399,32 @@ flowchart LR
   * **Dual-Target Desktop Computer Use**:
     - Supports `target: "host"` for automating native desktop applications (e.g. Wireshark, proprietary OEM flashing software, radio control panels) alongside `target: "sandbox"` for isolated Kali Linux XFCE4 virtual desktop operations.
 
-### 3. Autonomous Dual-Browser Operator (Manus-Style Local + Cloud CDP)
+### 3. Seamless Local Machine & Sandbox Integration Bridge (Cross-Environment Execution & Infinite Capabilities)
+* **What it does**: Melds the physical operator workstation (Windows, macOS, Linux) and the isolated Kali Linux Docker / Cloud Sandbox runtime into a unified, synchronized hybrid execution fabric.
+* **Why it matters**: Eliminates the "walled garden" limitations of isolated containers. If the sandbox lacks a library (e.g. `pypdf`, `pdfplumber`, `scapy`), lacks internet access, or hits an environmental dead end, RedHunter AI never stalls or gives up—it dynamically offloads execution to the host, injects dependencies offline, and synchronizes assets bidirectionally.
+* **Dual Runtime Flexibility: Local Docker & Production Cloud Sandboxes**:
+  - **Local Development**: Runs the local `redhunter-sandbox` Docker container with XFCE4 desktop and noVNC on port 6080 for offline, zero-cloud air-gapped security operations.
+  - **Enterprise Cloud Production**: Seamlessly uploads and runs the same hardened Kali Linux Docker container in on-demand cloud sandboxes (**E2B**, **Bunnyshell**, **Novita AI**, or custom Kubernetes clusters) while maintaining the identical transparent host hardware bridge and bi-directional synchronization.
+  - **Universal Host OS Adaptation**: Automatically adapts to the host workstation OS (Windows via PowerShell/WMI, macOS via Zsh/IOKit, or Linux via Bash/sysfs), ensuring zero configuration friction regardless of the operator's local environment.
+* **Key Capabilities**:
+  * **Bidirectional File & Folder Sync (`transfer_to_sandbox` / `transfer_to_host`)**:
+    - **Zero-Latency Shared Volume Fast Path**: The host `workspace/` folder is live-mounted into container `/home/user/workspace/`. Files, forensic disk dumps, PCAPs, and decompiled code sync instantly with zero network or copy overhead.
+    - **Deep Container System Extraction**: When files reside outside the workspace (e.g. `/var/log`, `/etc`, `/usr/local/bin`), the bridge leverages `docker cp` streaming automatically without manual user intervention.
+  * **Live Clipboard Synchronization (`sync_clipboard`)**:
+    - Real-time bidirectional clipboard bridge between the host OS clipboard (`powershell -NoProfile -Command "Get-Clipboard/Set-Clipboard"` on Windows, `pbcopy/pbpaste` on macOS, `xclip` on Linux) and the Kali container's X11 desktop display (`DISPLAY=:1 xclip`).
+    - Enables instantaneous copy-paste of long cryptographic keys, reverse shell payloads, tokens, and multi-line hashes without truncation.
+  * **Dynamic Native Host Execution Offloading (`execute_on_host`)**:
+    - When an operation requires native Windows tools, host GPU acceleration, native compilers, or host network access, the agent executes commands directly on the host machine and streams results back seamlessly.
+  * **Polyglot Offline Dependency Injection (`inject_dependency`)**:
+    - Downloads and installs packages across multiple languages: **Python wheels** (`pip`), **Node.js** (`npm`), **Rust crates** (`cargo`), **Go modules** (`go install`), **Debian/Kali system packages** (`apt`), or standalone pre-compiled binary URLs directly into `/usr/local/bin`.
+  * **Smart Polyglot Dead-End Recovery Engine (`resolve_dead_end`)**:
+    - Automatically parses command stderr, missing modules, and non-zero exit codes to categorize root causes (`missing_dependency`, `python_deadblock`, `missing_binary`, `network_restriction`).
+    - **Escapes the Python-Only Dead-Block**: While Python is common, it frequently stalls on missing C compilation headers, PEP 668 restrictions, or GIL deadlocks. The engine dynamically offers high-performance polyglot alternatives:
+      - **PDF Parsing**: Native Linux C LOLBins (`pdftotext`, `mutool`), Go (`pdfcpu`), Rust (`pdf-extract`), or Node.js (`pdf-parse`).
+      - **Office (DOCX / PPTX / XLSX)**: Native ZIP deconstruction (`unzip -p document.docx word/document.xml | sed ...`), Node.js (`mammoth`), Go (`excelize`), or Rust (`calamine`).
+      - **Networking & Exploitation**: Static Go/Rust binaries (`nuclei`, `ffuf`, `httpx`, custom Tokio/gopacket harnesses) and C/C++ raw sockets.
+
+### 4. Autonomous Dual-Browser Operator (Manus-Style Local + Cloud CDP)
 * **What it does**: Automates web application penetration testing through two complementary browser engines.
 * **How it works**:
   * **Manus-Style Local Browser Operator (`lib/browser/local-browser-operator.ts`)**: Connects via Chrome DevTools Protocol (CDP) to the operator's active Google Chrome or Microsoft Edge browser. Inherits logged-in enterprise sessions (AWS Console, GitHub, Jira, PortSwigger, CTF portals) without credential sharing.
@@ -438,12 +478,18 @@ flowchart LR
 * **What it does**: Equips the AI with an isolated Docker container (`redhunter-sandbox`) pre-loaded with offensive, binary reversing, and forensic toolchains without endangering the host system.
 * **How it works**:
   * **Offensive Toolset**: `nmap`, `naabu`, `httpx`, `ffuf`, `dirsearch`, `sqlmap`, `hydra`, `nuclei`, `trivy`, `subfinder`, `katana`, `trufflehog`.
-  * **Digital Forensics & Incident Response (DFIR) Suite**:
-    * **Disk & File Forensics**: The Sleuth Kit (`fls`, `tsk_recover`, `mmls`, `fsstat`), `foremost`, `scalpel`, `testdisk`, and `dc3dd` for raw disk dumps (`.dd`, `.raw`, `.vmdk`, `.img`).
-    * **Firmware Extraction**: `binwalk` for unpacking nested filesystems and proprietary embedded binaries.
-    * **Volatile Memory Forensics**: `volatility3` for analyzing RAM dumps to detect injected code (`malfind`), hidden processes (`pslist`), and network sockets (`netscan`).
-    * **Network Forensics & IoC Extraction**: `zeek` and `tshark` for automated protocol parsing (HTTP, DNS, SSL) and C2 beacon heartbeat detection.
-    * **Malware Reverse Engineering & YARA**: `rizin`, `radare2`, Mandiant `floss`, `gdb`, `gdbserver`, and automated `yara` rule generation.
+  * **Digital Forensics & Incident Response (DFIR) Suite (13 Dedicated Forensic Engines)**:
+    * **NTFS Deep Artifact & Timestomp Engine (`dfir_ntfs_timestomp_analysis`)**: Dual-attribute MACB discrepancy detection ($STANDARD_INFORMATION Type 0x10 vs $FILE_NAME Type 0x30), fractional nanosecond zeroing truncation detection (`.0000000Z`), and execution timeline correlation with Windows Prefetch (`.pf`), ShimCache (`AppCompatCache`), and Amcache.
+    * **Encrypted Network Traffic & JA4 C2 Profiler (`dfir_ja4_network_profiling`)**: Computes standardized JA4 TLS client fingerprints (`[proto][ver][sni][ciphers][exts][alpn]_[hash]_[hash]`) with SHA-256 truncation, matches against nation-state/cybercrime C2 profiles (Cobalt Strike, Sliver, Lumma, Metasploit, AsyncRAT), and detects domain fronting (SNI vs target ASN/DNS mismatches).
+    * **UEFI / BIOS Firmware Integrity & Bootkit Auditor (`dfir_firmware_integrity_check`)**: Audits Firmware Volumes (FV) and Firmware File Systems (FFS), computes cryptographic SHA-256 digests, detects known UEFI bootkits (BlackLotus CVE-2022-21894, CosmicStrand, MoonBounce, ESPecter), and audits Secure Boot revocation lists (`dbx`) and Intel Boot Guard enforcement.
+    * **Linux Kernel DKOM & eBPF Rootkit Inspector (`dfir_kernel_rootkit_audit`)**: Direct Kernel Object Manipulation (DKOM) hidden process discovery (`task_struct` vs `/proc`), unlinked kernel module auditing (`/proc/modules` vs sysfs `/sys/module/`), syscall table pointer verification outside canonical kernel text boundaries (`_stext` to `_etext`), and stealth eBPF hook auditing (`kprobe`, `tracepoint`, `xdp`, `cgroup/skb`).
+    * **Cloud & Identity Session Forensics (`dfir_cloud_identity_audit`)**: Mathematical Haversine Great-Circle "Impossible Travel" velocity detection ($V > 950\text{ km/h}$), session token theft and replay detection across divergent ASNs and User-Agents, and rogue OAuth application consent grant auditing (`Directory.ReadWrite.All`, `RoleManagement.ReadWrite.Directory`).
+    * **Disk & File Carving Forensics (`dfir_disk_forensics`)**: The Sleuth Kit (`fls`, `tsk_recover`, `mmls`, `fsstat`, `istat`), `foremost`, `scalpel`, `testdisk`, and `dc3dd` for raw disk dumps (`.dd`, `.raw`, `.vmdk`, `.img`).
+    * **Volatile Memory Forensics (`dfir_memory_forensics`)**: `volatility3` for analyzing RAM dumps to detect injected code (`malfind`), hidden processes (`pslist`), network sockets (`netscan`), and credential extraction (`hashdump`).
+    * **Network Session Forensics (`dfir_network_forensics`)**: `zeek` and `tshark` for automated protocol parsing (HTTP, DNS, SSL) and C2 beacon heartbeat detection.
+    * **Malware Reverse Engineering & YARA (`dfir_malware_analysis`)**: `rizin`, `radare2`, Mandiant `floss`, `gdb`, `gdbserver`, and automated `yara` rule generation.
+    * **Deep Root Cause Analysis (`dfir_root_cause_analysis`)**: GDB crash triage, register state analysis ($rip, $rsp, $rbp), mitigation bypass verification, CWE classification, and automated C/Rust hotpatch synthesis.
+    * **Topological Cyber Graph Synchronization (`cyber_graph_manager`)**: Auto-correlates all confirmed forensic artifacts into the `globalCyberGraph` to compute multi-hop attack paths and transitive blast radiuses.
     * Python exploitation and binary auditing stack: `pwntools`, `pefile`, `capstone`, `ropper`.
   * **Zero-Trust Upload Quarantine & Direct Container Dispatch (`lib/utils/sandbox-file-utils.ts`)**:
     * **Air-Gapped Host Protection**: When an operator uploads suspect files (malicious binaries, suspicious firmware, corrupted multimedia, or unknown APKs), the host web application / Next.js server **never unpacks or executes the file**. The host acts strictly as an unprivileged binary stream proxy.
