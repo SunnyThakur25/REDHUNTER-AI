@@ -15,7 +15,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue.svg?logo=typescript)](https://www.typescriptlang.org)
 [![Docker](https://img.shields.io/badge/Sandbox-Kali%20Linux%20Container-2496ED.svg?logo=docker)](https://www.docker.com)
 [![FastA2A](https://img.shields.io/badge/Protocol-FastA2A%20Multi--Agent-rose.svg)]
-(#3-fasta2a-multi-agent-swarm-protocol)
+(#1-fasta2a-multi-agent-swarm-protocol)
 [![Hardware Bridge](https://img.shields.io/badge/Hardware-USB%20ADB%20%7C%20Serial%20%7C%20Ethernet%20%7C%20SPI-green.svg)](#1-physical-usb-mobile-hardware-bridge-android--ios)
 [![Testing Modes](https://img.shields.io/badge/Modes-Black%20%7C%20Grey%20%7C%20White%20Box-purple.svg)](#tri-mode-offensive-testing-engine)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -34,7 +34,7 @@
 - [Tri-Mode Offensive Testing Engine](#tri-mode-offensive-testing-engine)
   - [The Power of Black Box: The True Autonomy Test](#the-power-of-black-box-the-true-autonomy-test)
   - [Multi-Surface Execution Matrix (Web, Network, Cloud, Mobile, Embedded/IoT, SATCOM/Space, OSINT/GEOINT)](#multi-surface-execution-matrix)
-- [21 Core Architectural Pillars & Capabilities](#21-core-architectural-pillars--capabilities)
+- [24 Core Architectural Pillars & Capabilities](#24-core-architectural-pillars--capabilities)
   - [1. Physical USB Mobile Hardware Bridge (Android & iOS)](#1-physical-usb-mobile-hardware-bridge-android--ios)
   - [2. Physical Hardware & Network Appliance Bridge (Routers, Switches, Firewalls, IoT)](#2-physical-hardware--network-appliance-bridge-routers-switches-firewalls-iot)
   - [3. Autonomous Dual-Browser Operator (Manus-Style Local + Cloud CDP)](#3-autonomous-dual-browser-operator-manus-style-local--cloud-cdp)
@@ -60,6 +60,10 @@
   - [19. Imagery Intelligence (IMINT) & Cyber-Physical Visual Reconnaissance Engine](#19-imagery-intelligence-imint--cyber-physical-visual-reconnaissance-engine)
   - [20. Autonomous Observe-to-Act (OODA) Agent Doctrine & Multi-Angle Testing Matrix](#20-autonomous-observe-to-act-ooda-agent-doctrine--multi-angle-testing-matrix)
   - [21. Target-Aware Polyglot Engine & Native Low-Level Systems Execution](#21-target-aware-polyglot-engine--native-low-level-systems-execution)
+  - [22. Structured Human-In-The-Loop (HITL) Interactive Dialogue & Dual Execution Modes](#22-structured-human-in-the-loop-hitl-interactive-dialogue-dual-execution-modes--skill-workflow-recorder)
+  - [23. Internet of Medical Things (IoMT) & Lab Automation Robotics Cyber-Physical Security Engine](#23-internet-of-medical-things-iomt--lab-automation-robotics-cyber-physical-security-engine)
+  - [24. Host-Aware Adaptive Concurrency, GPU Acceleration & Real-Time Parallel Swarm Exploration Engine](#24-host-aware-adaptive-concurrency-gpu-acceleration--real-time-parallel-swarm-exploration-engine)
+  - [25. Universal Dynamic Cybersecurity Doctrine: Nothing is Static, Everything is Dynamic](#25-universal-dynamic-cybersecurity-doctrine-nothing-is-static-everything-is-dynamic)
 - [Interactive Live Computer Studio UI](#interactive-live-computer-studio-ui)
 - [Getting Started & Installation](#getting-started--installation)
   - [System Prerequisites](#system-prerequisites)
@@ -167,7 +171,7 @@ RedHunter AI eliminates the two greatest failure modes of autonomous AI security
 
 ---
 
-## 21 Core Architectural Pillars & Capabilities
+## 24 Core Architectural Pillars & Capabilities
 
 <div align="center">
   <p><b>Neo4j-Style Autonomous Graph Topology & Command Matrix — Live Swarm & Multi-Domain Pipeline</b></p>
@@ -817,6 +821,69 @@ Simply prompt RedHunter AI in natural language; the autonomous agent will select
     - **Dual Skill Formats Handled**:
       1. **User Skills JSON Format**: Stored and managed in the User Skills Menu (`app/hooks/useCustomSkills.ts`), allowing users to toggle, customize, import, and export skills as structured JSON (`CustomSkill` object with commands, CLI tools, and parameters).
       2. **Agent Skills Open Standard (`SKILL.md`)**: Automatically synthesized into `skills/<skill_name>/SKILL.md` with YAML frontmatter, execution steps, and verification protocols, permanently registered in RedHunter's persistent skill bank (`lib/ai/skills/skill-registry.ts`) for 10x faster zero-hallucination repeat execution.
+
+### 23. Internet of Medical Things (IoMT) & Lab Automation Robotics Cyber-Physical Security Engine
+* **What it does**: Provides real-time, non-simulated physical and network security auditing for clinical healthcare medical devices (IoMT) and laboratory automation robotics systems.
+* **Why It Matters**: Medical devices and high-throughput lab automation equipment directly touch patient health and physical biological/chemical workflows. A software vulnerability or unauthenticated fieldbus write can cause physical actuator runaway, sensor spoofing, or massive ePHI data leaks.
+* **How it works**:
+  * **Clinical Telemetry & PACS Auditing (DICOM & HL7)**:
+    - Active socket-level verification against **DICOM (Port 104)**: tests Application Entity (AE) title authentication, cleartext patient imaging/tag leaks (CWE-319), and unauthenticated C-STORE/C-FIND operations.
+    - Active verification against **HL7 v2 MLLP (Port 2575)** and FHIR endpoints: tests unencrypted transmission of Protected Health Information (ePHI) across patient admission (ADT), lab orders (ORM), and vital observation (ORU) streams.
+  * **Lab Automation & Robotics Bus Testing (Modbus TCP, CAN & RS-485)**:
+    - Directly audits industrial controllers on automated liquid handlers, autosamplers, centrifuges, and heating blocks.
+    - Detects unauthenticated holding register writes (Function Codes `0x05`, `0x06`, `0x10`) that could force robotic arm motors beyond mechanical limits or alter critical biological assay temperatures.
+  * **Physical Silicon & Debug Port Lockdown (UART, JTAG & SWD)**:
+    - Verifies physical microcontroller lockdown via connected hardware adapters (JTAG/SWD/UART).
+    - Checks for Readout Protection (STM32 RDP Level 2), eFuse burn status (ESP32 Flash Encryption & Secure Boot v2), and disabled test points on production PCBs.
+  * **Automated Hardening & Regulatory Remediation**:
+    - Automatically synthesizes deployable network micro-segmentation firewalls (`iptables` / eBPF rules) to isolate sensitive medical telemetry streams.
+    - Generates Modbus function-code filter rules to enforce read-only monitoring while blocking unauthorized actuator write commands.
+    - Maps technical findings directly to **FDA Premarket Cybersecurity Guidance (Section 524B FD&C Act)**, **IEC 81001-5-1**, and **HIPAA Security Rule** compliance dossiers.
+
+### 24. Host-Aware Adaptive Concurrency, GPU Acceleration & Real-Time Parallel Swarm Exploration Engine
+* **What it does**: Dynamically inspects the user's host machine compute architecture (CPU logical threads, RAM headroom, and dedicated NVIDIA/Metal/Windows GPU availability) without mocks or hardcoded strings, dynamically computing the optimal swarm concurrency budget (`maxParallelTasks`, `heavyToolBudget`, and `executionMode`) using continuous mathematical formulas rather than rigid arbitrary caps.
+* **Why It Matters**: Blindly running dozens of parallel headless browsers, mass port scans, or heavy memory tools exhausts RAM and freezes the user's desktop. Conversely, hardcoding artificial ceilings (e.g. capping at 12 tasks) starves 32/64-core workstations and multi-GPU rigs. RedHunter AI mathematically scales up to 48–64+ parallel workers on high-end hardware while dynamically throttling to safe limits on constrained laptops.
+* **How it works**:
+  * **Zero Rigid Caps & Continuous Mathematical Scaling**:
+    - **Dynamic OS Safety Buffer**: Automatically reserves 15% of total system RAM (clamped between 1GB and 4GB) to guarantee that host operating system services, window managers, and user applications never lag or thrash.
+    - **Usable Memory Calculation**: `usableRamMb = Math.max(512, freeRamMb - osSafetyBufferMb)`.
+    - **Continuous Resource Formulas**:
+      * `ramSafeConcurrency = Math.floor(usableRamMb / 120MB)`
+      * `cpuSafeConcurrency = Math.round(logicalCores * 1.5)` (safe I/O oversubscription)
+      * `maxParallelTasks = Math.max(1, Math.min(cpuSafeConcurrency, ramSafeConcurrency))`
+      * `heavyToolBudget = Math.min(Math.floor(logicalCores / 2), Math.floor(usableRamMb / 2048)) + gpuBoost`
+    - Seamlessly expands from 3–4 workers on an 8GB laptop up to 48–64+ workers on multi-core servers without code changes.
+  * **Cross-Platform GPU & Unified Memory Discovery**:
+    - **NVIDIA CUDA**: Queries `nvidia-smi` in real time for dedicated total and free VRAM.
+    - **Apple Silicon Metal**: Autonomously identifies unified memory architectures on macOS (M1/M2/M3/M4 Max/Pro) where high-bandwidth system RAM is shared with Metal shaders and Neural Engine.
+    - **Windows CIM Video Controllers**: Queries `Win32_VideoController` and intelligently selects the dedicated high-performance GPU with maximum VRAM, avoiding weak integrated graphics.
+    - Offloads neural parsing, hash cracking (Hashcat), and high-throughput protocol permutations directly to GPU pipelines.
+  * **Runtime Live Memory Admission Control**:
+    - Evaluates live `os.freemem()` before pulling tasks from the queue. If host memory approaches the critical threshold, task admissions pause momentarily until running workers release RAM.
+    - Tasks declare multidimensional resource footprints (`estimatedRamMb`, `estimatedCpuCores`, `isHeavyTool`, `requiresGpu`) ensuring heavy tools (decompilers, AST fuzzers) and lightweight probes run in harmonious balance without starvation.
+  * **Multi-Surface Parallel Swarm Exploration & Live Telemetry Bus**:
+    - Dispatches specialized parallel workers simultaneously across disparate attack surfaces: Web/API, Network Middleboxes, Cyber-Physical/IoMT, and Cloud Identity.
+    - All concurrent workers communicate over an in-memory event bus (`SwarmTelemetryBus`) and the unified `globalCyberGraph`.
+    - When Worker B discovers an unexpected high port (`11112`) or Worker C extracts a JWT secret, every active worker is notified in the same millisecond, dynamically pivoting their attack strategies synchronously.
+
+### 25. Universal Dynamic Cybersecurity Doctrine: Nothing is Static, Everything is Dynamic
+* **What it does**: Establishes RedHunter AI's foundational operational doctrine across all offensive, defensive, and forensics operations: **nothing in modern cybersecurity is static, and everything must be discovered, adapted, and synthesized dynamically**.
+* **Why It Matters**: Textbook checklists, rigid hardcoded strings, static payload dictionaries, and default port assumptions fail in production environments. Target architectures intentionally deviate from standards (e.g. DICOM running on port 11112 instead of 104; HL7 telemetry on port 2576 instead of 2575; Modbus on port 5020; custom UART baud rates; randomized high ports). Static tools freeze; RedHunter AI learns and adapts mid-flight.
+* **Core Principles**:
+  * **Cross-Domain Fluidity (Zero Siloed Testing)**:
+    - Cybersecurity operates across a continuum: Physical Silicon $\leftrightarrow$ RF/Wireless/SATCOM $\leftrightarrow$ Network Middleboxes $\leftrightarrow$ Web/APIs $\leftrightarrow$ Cloud IAM $\leftrightarrow$ Firmware/Binary logic.
+    - An attack vector uncovered in one domain immediately unlocks vectors in adjacent domains without operator friction.
+  * **Zero Rigid Values & Polyglot On-The-Fly Synthesis**:
+    - Never assume standard ports, default credentials, fixed payload framing, or rigid scanner flags.
+    - If a WAF blocks a signature, an IDS rate-limits, or a custom protocol dialect rejects textbook framing, the engine never freezes or reports false invulnerability.
+    - Dynamically synthesizes custom polyglot scripts (Python with raw sockets/Scapy, Go, C/C++, Rust, PowerShell) and tailored protocol framing on the fly.
+  * **Mid-Flight Tactical Reassessment ("What Can I Do Now?")**:
+    - Every single packet, error banner, carved credential, or port discovered mid-flight is a living intelligence catalyst.
+    - After every single action, the engine immediately asks: *"What did I just learn? What new attack surface is now exposed? What can I do right now that was previously impossible?"*
+    - Automatically pivots tactics and payloads mid-flight without requiring a campaign restart.
+  * **Dynamic Cross-Domain Kill-Chain & Cyber Graph Synthesis**:
+    - True threat actors chain findings across domains (e.g. Physical UART dump $\rightarrow$ carved cloud S3 credentials $\rightarrow$ Cloud IAM pivot $\rightarrow$ internal API microservice access $\rightarrow$ lateral network movement $\rightarrow$ industrial/medical controller compromise).
+    - Synchronizes every discovered node and relationship into the unified `globalCyberGraph` (`CONNECTS_TO`, `HAS_VULNERABILITY`, `TRUSTS`, `LOGS_INTO`, `CAN_COMPROMISE`), dynamically recalculating the shortest attack path to crown jewels and computing the blast radius in real time.
 
 ---
 
