@@ -31,10 +31,11 @@
 - [Executive Comparison: Traditional vs. RedHunter AI](#executive-comparison-traditional-vs-redhunter-ai)
 - [Comprehensive Technical Operator Manual & Guide (GUIDE.md)](GUIDE.md)
 - [Comprehensive User Guidance & Multi-Domain Testing Manual (USER_GUIDANCE.md)](USER_GUIDANCE.md)
+- [Investor, VC, CISO & Defense Battleground Q&A Playbook (INVESTOR_AND_DEFENSE_BATTLEGROUND_QA.md)](INVESTOR_AND_DEFENSE_BATTLEGROUND_QA.md)
 - [Tri-Mode Offensive Testing Engine](#tri-mode-offensive-testing-engine)
   - [The Power of Black Box: The True Autonomy Test](#the-power-of-black-box-the-true-autonomy-test)
   - [Multi-Surface Execution Matrix (Web, Network, Cloud, Mobile, Embedded/IoT, SATCOM/Space, OSINT/GEOINT)](#multi-surface-execution-matrix)
-- [24 Core Architectural Pillars & Capabilities](#24-core-architectural-pillars--capabilities)
+- [26 Core Architectural Pillars & Capabilities](#26-core-architectural-pillars--capabilities)
   - [1. Physical USB Mobile Hardware Bridge (Android & iOS)](#1-physical-usb-mobile-hardware-bridge-android--ios)
   - [2. Physical Hardware & Network Appliance Bridge (Routers, Switches, Firewalls, IoT)](#2-physical-hardware--network-appliance-bridge-routers-switches-firewalls-iot)
   - [3. Autonomous Dual-Browser Operator (Manus-Style Local + Cloud CDP)](#3-autonomous-dual-browser-operator-manus-style-local--cloud-cdp)
@@ -64,6 +65,7 @@
   - [23. Internet of Medical Things (IoMT) & Lab Automation Robotics Cyber-Physical Security Engine](#23-internet-of-medical-things-iomt--lab-automation-robotics-cyber-physical-security-engine)
   - [24. Host-Aware Adaptive Concurrency, GPU Acceleration & Real-Time Parallel Swarm Exploration Engine](#24-host-aware-adaptive-concurrency-gpu-acceleration--real-time-parallel-swarm-exploration-engine)
   - [25. Universal Dynamic Cybersecurity Doctrine: Nothing is Static, Everything is Dynamic](#25-universal-dynamic-cybersecurity-doctrine-nothing-is-static-everything-is-dynamic)
+  - [26. The 7 Mathematical Cyber Algorithms & Deterministic Reasoning Engine](#26-the-7-mathematical-cyber-algorithms--deterministic-reasoning-engine)
 - [Interactive Live Computer Studio UI](#interactive-live-computer-studio-ui)
 - [Getting Started & Installation](#getting-started--installation)
   - [System Prerequisites](#system-prerequisites)
@@ -884,6 +886,40 @@ Simply prompt RedHunter AI in natural language; the autonomous agent will select
   * **Dynamic Cross-Domain Kill-Chain & Cyber Graph Synthesis**:
     - True threat actors chain findings across domains (e.g. Physical UART dump $\rightarrow$ carved cloud S3 credentials $\rightarrow$ Cloud IAM pivot $\rightarrow$ internal API microservice access $\rightarrow$ lateral network movement $\rightarrow$ industrial/medical controller compromise).
     - Synchronizes every discovered node and relationship into the unified `globalCyberGraph` (`CONNECTS_TO`, `HAS_VULNERABILITY`, `TRUSTS`, `LOGS_INTO`, `CAN_COMPROMISE`), dynamically recalculating the shortest attack path to crown jewels and computing the blast radius in real time.
+
+### 26. The 7 Mathematical Cyber Algorithms & Deterministic Reasoning Engine
+* **What it does**: RedHunter AI eliminates reliance on simple LLM probabilistic hallucinations by integrating the **7 Mathematical Cyber Algorithms** into a unified, deterministic reasoning core ([`lib/security/algorithms`](lib/security/algorithms/index.ts)). LLMs function strictly as semantic parsers and code translators, while mathematical algorithms govern combinatorial lookahead, Bayesian belief updating, spatial graph centrality, and risk-constrained execution.
+* **Why It Matters**: Standard prompt-based AI agents suffer from combinatoric explosion across complex multi-subnet networks, hallucinate non-existent attack paths, and risk crashing target infrastructure. By grounding all actions in formal mathematical optimization, RedHunter AI operates with 100% reproducible rigor and zero accidental outage risk.
+* **The 7 Mathematical Engines**:
+  1. **ALGORITHM 1: Attack Tree Generation (ATG)** ([`attack-tree-generation.ts`](lib/security/algorithms/attack-tree-generation.ts)):
+     - Constructs hierarchical Directed Acyclic Graphs (DAGs) from entry points to crown jewels.
+     - Computes joint success probability $P(\text{Path}) = \prod P(\text{step}_i)$, cumulative effort cost $\sum C(\text{step}_i)$, and compounded stealth $\prod \text{Stealth}(\text{step}_i)$.
+     - Evaluates path utility $\text{Score} = \frac{P(\text{Path}) \times \text{AssetValue}}{\text{Cost} \times (1 - \text{Stealth} + \epsilon)}$ with multi-objective Pareto path ranking.
+  2. **ALGORITHM 2: Bayesian Attack Graph (BAG)** ([`bayesian-attack-graph.ts`](lib/security/algorithms/bayesian-attack-graph.ts)):
+     - Dynamically updates vulnerability hypotheses under partial observability using Bayes' Theorem: $P(H \mid E) = \frac{P(E \mid H) P(H)}{P(E)}$.
+     - Incorporates a defensive likelihood profile matrix to distinguish true negatives from WAF drops or firewall rate limits.
+     - Computes Shannon entropy $H(X) = - \sum p \log_2 p$ to quantify epistemic uncertainty and guide exploration toward high-ambiguity assets.
+  3. **ALGORITHM 3: Monte Carlo Tree Search (MCTS) for Exploitation Planning** ([`mcts-planner.ts`](lib/security/algorithms/mcts-planner.ts)):
+     - Executes 4-phase deliberation (Selection $\rightarrow$ Expansion $\rightarrow$ Rollout Simulation $\rightarrow$ Backpropagation) in microsecond memory space using the Upper Confidence Bound for Trees: $\text{UCT}(v) = \frac{Q(v)}{N(v)} + C \sqrt{\frac{\ln N_{\text{parent}}}{N(v)}} + \mathcal{P}_{\text{safety}}(v)$.
+     - Simulates thousands of prospective action rollouts in a virtual sandbox before transmitting a single live network packet.
+     - Applies strict non-destructive safety pruning to eliminate actions that risk service denial or unconstrained memory corruption.
+  4. **ALGORITHM 4: Adaptive Reinforcement Learning / Constrained MDP** ([`adaptive-reinforcement-learner.ts`](lib/security/algorithms/adaptive-reinforcement-learner.ts)):
+     - Solves a Constrained Markov Decision Process (CMDP) with Bellman Temporal Difference Q-learning: $Q(s, a) \leftarrow Q(s, a) + \alpha [r + \gamma \max_{a'} Q(s', a') - Q(s, a)]$.
+     - Enforces strict Rules of Engagement (RoE) via action-space masking $\mathcal{A}_{\text{valid}}(s) = \{ a \in \mathcal{A} \mid \text{Risk}(s, a) \le \Delta_{\text{RiskBudget}} \}$.
+     - Learns target defensive tolerance thresholds (e.g. discovering the exact burst rate threshold of corporate firewalls).
+  5. **ALGORITHM 5: Pattern Matching with Fuzzy Logic** ([`fuzzy-pattern-matcher.ts`](lib/security/algorithms/fuzzy-pattern-matcher.ts)):
+     - Replaces brittle regex signatures with continuous fuzzy membership functions $\mu_i(x) \in [0, 1]$ evaluating timing anomaly deltas, Shannon body entropy, byte variation, reflection ratio, and error signatures.
+     - Calculates multi-feature weighted similarity $\text{Score}(x) = \frac{\sum w_i \mu_i(x)}{\sum w_i}$ to reliably detect zero-day variants and business logic anomalies.
+  6. **ALGORITHM 6: Graph Neural Networks (GNN) for Network Analysis** ([`graph-neural-network.ts`](lib/security/algorithms/graph-neural-network.ts)):
+     - Ingests enterprise network and Active Directory topologies into spatial graph convolutional embeddings: $h_v^{(k)} = \sigma(W \sum_{u \in \mathcal{N}(v)} \frac{h_u^{(k-1)}}{|\mathcal{N}(v)|} + B h_v^{(k-1)})$.
+     - Evaluates betweenness centrality to isolate **Keystone Choke Points** (the single intermediate assets whose remediation eliminates the maximal number of viable entry-to-crown-jewel kill chains).
+     - Automatically flags unintended trust bridges across segmented network enclaves.
+  7. **ALGORITHM 7: Syntax-Preserving Genetic Algorithm (GA)** ([`genetic-payload-evolver.ts`](lib/security/algorithms/genetic-payload-evolver.ts)):
+     - Evolves non-destructive polymorphic canary probes (SQL, XSS, path traversal, header canaries) using AST-preserving grammar mutators (whitespace alternation, inline comment splitting, encoding).
+     - Evaluates multi-objective fitness $\text{Fitness}(\mathcal{P}) = w_{\text{bypass}} \cdot \text{BypassProb} + w_{\text{valid}} \cdot \text{SyntaxValidity} + w_{\text{stealth}} \cdot \text{StealthScore}$.
+     - Proves whether perimeter defensive filters can be bypassed without introducing destructive binary payloads.
+  * **Unified Algorithmic Meta-Controller** ([`cyber-algorithm-orchestrator.ts`](lib/security/algorithms/cyber-algorithm-orchestrator.ts)):
+     - Coordinates all 7 engines in a continuous closed-loop pipeline directly integrated with [`StrategicPlanner`](lib/security/planner/strategic-planner.ts).
 
 ---
 
