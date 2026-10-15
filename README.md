@@ -1115,3 +1115,288 @@ redhunter-ai/
 ## License
 
 This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+
+
+
+
+
+
+
+
+
+
+
+```cypher
+// ============================================================================
+// REDHUNTER AI — NEO4J FULL ARCHITECTURAL GRAPH DEFINITION
+// ============================================================================
+
+// 1. Create Constraints & Indexes
+CREATE CONSTRAINT unique_frontend_name IF NOT EXISTS FOR (f:FrontendComponent) REQUIRE f.name IS UNIQUE;
+CREATE CONSTRAINT unique_backend_path IF NOT EXISTS FOR (b:BackendRoute) REQUIRE b.path IS UNIQUE;
+CREATE CONSTRAINT unique_db_table IF NOT EXISTS FOR (d:DatabaseTable) REQUIRE d.name IS UNIQUE;
+CREATE CONSTRAINT unique_algo_id IF NOT EXISTS FOR (a:CognitionAlgorithm) REQUIRE a.algoId IS UNIQUE;
+CREATE CONSTRAINT unique_agent_name IF NOT EXISTS FOR (ag:AgentWorker) REQUIRE ag.name IS UNIQUE;
+CREATE CONSTRAINT unique_runtime_name IF NOT EXISTS FOR (r:SandboxRuntime) REQUIRE r.name IS UNIQUE;
+CREATE CONSTRAINT unique_hardware_name IF NOT EXISTS FOR (h:HardwareBridge) REQUIRE h.name IS UNIQUE;
+
+// 2. Create Frontend Nodes
+CREATE (fe_next:FrontendComponent {
+    name: "NextJS_Studio_UI",
+    framework: "Next.js 16.2 / React 19",
+    bundler: "Turbopack",
+    features: ["Monaco Editor", "Xterm.js Terminal", "noVNC Canvas"],
+    layer: "Presentation"
+})
+CREATE (fe_tauri:FrontendComponent {
+    name: "Tauri_Desktop_Core",
+    framework: "Tauri v2 / Rust",
+    features: ["Native USB Enumeration", "Direct COM Port Access", "Local Sockets"],
+    layer: "Presentation"
+})
+
+// 3. Create Backend Gateway Nodes
+CREATE (be_api:BackendRoute {
+    path: "/api/chat",
+    method: "POST",
+    runtime: "Node.js Serverless",
+    protocol: "Server-Sent Events (SSE)",
+    layer: "API Gateway"
+})
+CREATE (be_sandbox:BackendRoute {
+    path: "/api/sandbox/desktop",
+    method: "GET/POST",
+    runtime: "Node.js",
+    protocol: "WebSocket / HTTP",
+    layer: "API Gateway"
+})
+CREATE (be_trigger:BackendRoute {
+    path: "trigger/campaign-runner",
+    method: "Async Task",
+    runtime: "Trigger.dev v4",
+    protocol: "Serverless Durable Queue",
+    layer: "Orchestration"
+})
+
+// 4. Create Database & Memory Nodes
+CREATE (db_convex:DatabaseTable {
+    name: "Convex_Reactive_Core",
+    engine: "Convex 1.42.3",
+    modelType: "Reactive Document Store",
+    syncMode: "Real-Time WebSocket",
+    tables: ["projects", "chats", "messages", "agent_approval_grants", "todos"]
+})
+CREATE (db_memory:DatabaseTable {
+    name: "Proprietary_8Tier_Memory",
+    engine: "In-Memory Graph & Vector Store",
+    modelType: "Directed Property Graph",
+    syncMode: "Bidirectional 4-Second Sync",
+    features: ["Dijkstra Shortest Path", "Tabu Negative Memory", "CPG Taint Memory"]
+})
+
+// 5. Create AI Router & Cognition Algorithms
+CREATE (ai_router:AIService {
+    name: "Multi_Model_AutoRouter",
+    provider: "Vercel AI SDK / OpenRouter",
+    supportedModels: ["Claude 3.7 Sonnet Thinking", "DeepSeek R1", "DeepSeek V3", "GPT-4o"],
+    routingLogic: "Domain-Based Latency & Cost Optimization"
+})
+CREATE (meta_controller:CognitionAlgorithm {
+    algoId: "META-00",
+    name: "Recursive_Meta_Controller",
+    layer: "Executive Controller",
+    mathCore: "11-Step Closed-Loop MDP Optimization"
+})
+CREATE (algo_atg:CognitionAlgorithm {
+    algoId: "ALG-01R",
+    name: "Dynamic_Attack_Mesh_ATG_R",
+    layer: "Planning",
+    mathCore: "Conditional DAG, Compound Detection Risk D(π), 4D Cost Vector"
+})
+CREATE (algo_bag:CognitionAlgorithm {
+    algoId: "ALG-02",
+    name: "Bayesian_Attack_Graph",
+    layer: "Adaptation",
+    mathCore: "Bayes Posterior Belief with Honeypot Damping ε and Shannon Entropy"
+})
+CREATE (algo_mcts:CognitionAlgorithm {
+    algoId: "ALG-03",
+    name: "MCTS_Horizon_Planner",
+    layer: "Planning",
+    mathCore: "UCT Search with Horizon Depth Cap H and Spatial GNN Leaf Valuation"
+})
+CREATE (algo_rl:CognitionAlgorithm {
+    algoId: "ALG-04",
+    name: "Adaptive_OPSEC_RL",
+    layer: "Adaptation",
+    mathCore: "Bellman Optimality with OPSEC-Shaped Reward Function"
+})
+CREATE (algo_gnn:CognitionAlgorithm {
+    algoId: "ALG-06",
+    name: "Cyber_Graph_Neural_Network",
+    layer: "Topology",
+    mathCore: "Spatial Graph Convolution for Keystone Choke Point Identification"
+})
+CREATE (algo_genetic:CognitionAlgorithm {
+    algoId: "ALG-07",
+    name: "Grammar_Aware_Genetic_Evolver",
+    layer: "Weaponization",
+    mathCore: "AST Mutation Optimizing Shannon Byte Entropy and Signature Dissimilarity"
+})
+CREATE (algo_autoencoder:CognitionAlgorithm {
+    algoId: "ALG-08",
+    name: "Dual_Autoencoder_Detector",
+    layer: "Evasion & Camouflage",
+    mathCore: "Blue Blind-Spot MSE Profiling and Red C2 Manifold Reconstruction"
+})
+
+// 6. Create Agent Swarm Nodes
+CREATE (agent_orch:AgentWorker {
+    name: "Super_Agent_Orchestrator",
+    role: "Mission Lead & DAG Coordinator",
+    protocol: "FastA2A v1.0",
+    contextBudget: "Strategic Root Window"
+})
+CREATE (agent_recon:AgentWorker {
+    name: "Recon_Specialist",
+    role: "OSINT, Port Sweeps, Attack Surface Discovery",
+    protocol: "FastA2A v1.0",
+    contextBudget: "Isolated Sub-Frame"
+})
+CREATE (agent_web:AgentWorker {
+    name: "WebApp_Exploiter",
+    role: "OWASP Top 10, BOLA/IDOR, Logic Flaws",
+    protocol: "FastA2A v1.0",
+    contextBudget: "Isolated Sub-Frame"
+})
+CREATE (agent_net:AgentWorker {
+    name: "Network_Pivoter",
+    role: "Active Directory, Kerberoasting, Lateral Pivoting",
+    protocol: "FastA2A v1.0",
+    contextBudget: "Isolated Sub-Frame"
+})
+CREATE (agent_code:AgentWorker {
+    name: "Code_Auditor",
+    role: "SAST Taint Analysis, Binary Decompilation, Patch Synthesis",
+    protocol: "FastA2A v1.0",
+    contextBudget: "Isolated Sub-Frame"
+})
+
+// 7. Create Execution Sandboxes & Hardware Bridges
+CREATE (run_e2b:SandboxRuntime {
+    name: "E2B_Firecracker_MicroVM",
+    type: "Ephemeral Cloud VM",
+    isolationLevel: "Hardware KVM Isolated Kernel",
+    bootTimeMs: 140
+})
+CREATE (run_docker:SandboxRuntime {
+    name: "Kali_Linux_Docker_Sandbox",
+    type: "Local Isolated Container",
+    isolationLevel: "cgroups / seccomp profile",
+    bootTimeMs: 450
+})
+CREATE (hw_serial:HardwareBridge {
+    name: "Host_USB_Serial_Bridge",
+    busType: "UART / RS-232 / RS-485",
+    driver: "WMI Win32_SerialPort & Linux udev",
+    supportedSilicon: ["FTDI FT232R", "CP2102", "CH340G", "PL2303"]
+})
+CREATE (hw_spi:HardwareBridge {
+    name: "Physical_SPI_Flash_Bridge",
+    busType: "SPI / I2C",
+    driver: "flashrom / CH341A Subsystem",
+    supportedSilicon: ["Winbond W25Q", "Macronix MX25", "GigaDevice GD25"]
+})
+CREATE (hw_sdr:HardwareBridge {
+    name: "SATCOM_SDR_Radio_Bridge",
+    busType: "USB 3.0 High-Speed RF",
+    driver: "GNU Radio DSP / Hamlib rotctl (Port 4533)",
+    supportedSilicon: ["Ettus USRP B210", "HackRF One", "LimeSDR", "RTL-SDR v4"]
+})
+CREATE (hw_mobile:HardwareBridge {
+    name: "Mobile_Device_Bridge",
+    busType: "USB Android Debug Bridge",
+    driver: "Universal ADB Resolver & UI Automator",
+    supportedSilicon: ["Qualcomm Snapdragon", "Google Tensor", "Apple Silicon"]
+})
+
+// 8. Create Structural Relationships
+CREATE (fe_next)-[:SUBSCRIBES_REACTIVE {syncMechanism: "Convex WebSocket", latencyMs: 12}]->(db_convex)
+CREATE (fe_next)-[:DISPATCHES_STREAM {protocol: "HTTP/2 SSE"} ]->(be_api)
+CREATE (fe_tauri)-[:BRIDGES_HARDWARE {electricalInterface: "USB VCP"} ]->(hw_serial)
+CREATE (fe_tauri)-[:BRIDGES_HARDWARE {electricalInterface: "USB ADB"} ]->(hw_mobile)
+
+CREATE (be_api)-[:INVOKES_MUTATION {transactionType: "Optimistic ACID"} ]->(db_convex)
+CREATE (be_api)-[:DISPATCHES_STREAM {protocol: "gRPC / Queue"} ]->(be_trigger)
+CREATE (be_api)-[:ROUTES_MODEL {routingStrategy: "Semantic Complexity Score"} ]->(ai_router)
+
+CREATE (ai_router)-[:EVALUATES_ALGORITHM {decisionOrder: 1} ]->(meta_controller)
+CREATE (meta_controller)-[:EVALUATES_ALGORITHM {decisionOrder: 2} ]->(algo_atg)
+CREATE (meta_controller)-[:EVALUATES_ALGORITHM {decisionOrder: 3} ]->(algo_bag)
+CREATE (meta_controller)-[:EVALUATES_ALGORITHM {decisionOrder: 4} ]->(algo_mcts)
+CREATE (meta_controller)-[:EVALUATES_ALGORITHM {decisionOrder: 5} ]->(algo_rl)
+CREATE (meta_controller)-[:EVALUATES_ALGORITHM {decisionOrder: 6} ]->(algo_gnn)
+CREATE (meta_controller)-[:EVALUATES_ALGORITHM {decisionOrder: 7} ]->(algo_genetic)
+CREATE (meta_controller)-[:EVALUATES_ALGORITHM {decisionOrder: 8} ]->(algo_autoencoder)
+
+CREATE (meta_controller)-[:ORCHESTRATES_SWARM {protocol: "FastA2A v1.0"} ]->(agent_orch)
+CREATE (agent_orch)-[:ORCHESTRATES_SWARM {protocol: "Isolated Sub-Task Frame"} ]->(agent_recon)
+CREATE (agent_orch)-[:ORCHESTRATES_SWARM {protocol: "Isolated Sub-Task Frame"} ]->(agent_web)
+CREATE (agent_orch)-[:ORCHESTRATES_SWARM {protocol: "Isolated Sub-Task Frame"} ]->(agent_net)
+CREATE (agent_orch)-[:ORCHESTRATES_SWARM {protocol: "Isolated Sub-Task Frame"} ]->(agent_code)
+
+CREATE (agent_web)-[:EXECUTES_SANDBOX {transport: "CDP & WebSockets"} ]->(run_e2b)
+CREATE (agent_net)-[:EXECUTES_SANDBOX {transport: "PTY Stream"} ]->(run_docker)
+CREATE (agent_code)-[:FEEDS_TELEMETRY {dataType: "AST Taint Nodes"} ]->(db_memory)
+
+CREATE (agent_orch)-[:BRIDGES_HARDWARE {electricalInterface: "SPI Header"} ]->(hw_spi)
+CREATE (agent_recon)-[:BRIDGES_HARDWARE {electricalInterface: "RF IQ Stream"} ]->(hw_sdr)
+
+CREATE (run_e2b)-[:FEEDS_TELEMETRY {dataType: "Canary Tokens & Proof Diff"} ]->(db_convex)
+CREATE (run_docker)-[:FEEDS_TELEMETRY {dataType: "PCAP & Forensic Logs"} ]->(db_memory)
+CREATE (db_memory)-[:INVOKES_MUTATION {transactionType: "Batch Graph Merge"} ]->(db_convex);
+```
+
+### D. Production Cypher Queries for Technical Due Diligence
+
+When an engineering partner asks: *"How do you query and traverse your system in production?"*, you can show these exact Cypher queries:
+
+#### Query 1: Trace End-to-End Execution Path (User Action to Bare-Metal Silicon)
+```cypher
+MATCH path = (fe:FrontendComponent)-[*]->(hw:HardwareBridge)
+RETURN [node IN nodes(path) | labels(node)[0] + ": " + coalesce(node.name, node.path)] AS ExecutionChain,
+       length(path) AS Depth
+ORDER BY Depth DESC
+LIMIT 5;
+```
+
+#### Query 2: Identify Critical Choke Points in the Target Cyber Graph
+```cypher
+MATCH (target:Host {isCrownJewel: true})<-[:CONNECTS_TO*1..5]-(pivot:Host)
+WITH pivot, count(distinct target) AS ExposedCrownJewels
+MATCH (entry:Host {isEntryNode: true})-[:CONNECTS_TO*1..5]->(pivot)
+RETURN pivot.ipAddress AS ChokePointIP,
+       pivot.hostname AS Hostname,
+       ExposedCrownJewels,
+       count(distinct entry) AS IngressPaths
+ORDER BY ExposedCrownJewels * IngressPaths DESC
+LIMIT 10;
+```
+
+#### Query 3: Multi-Agent Swarm Dependency & Blast Radius Analysis
+```cypher
+MATCH (lead:AgentWorker {name: "Super_Agent_Orchestrator"})-[:ORCHESTRATES_SWARM]->(sub:AgentWorker)
+OPTIONAL MATCH (sub)-[:EXECUTES_SANDBOX]->(runtime)
+OPTIONAL MATCH (sub)-[:BRIDGES_HARDWARE]->(hw)
+RETURN sub.name AS SubordinateAgent,
+       sub.role AS TacticalRole,
+       collect(distinct runtime.name) AS ActiveRuntimes,
+       collect(distinct hw.name) AS ControlledHardware;
+```
+
+---
+
+
+
+---
+
